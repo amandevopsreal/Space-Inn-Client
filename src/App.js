@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import Signup from './components/Signup';
+import Signup from './components/Singup/Signup';
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,7 +11,7 @@ function App() {
     <>
     <Router>
       <Routes>
-      <Route exact path="/signup" element={<Signup/>} />
+      <Route exact path="/" element={<Signup/>}/>
       </Routes>
     </Router>
     </>

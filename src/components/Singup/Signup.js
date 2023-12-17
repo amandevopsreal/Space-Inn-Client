@@ -2,7 +2,7 @@ import "./Signup.css";
 
 const Signup = () => {
   return (
-    <div className="box">
+    <div style={{display:"flex",justifyContent:"center",alignItems:"center"}} className="box">
       <div className="group">
         <div className="div">
           <img className="img" alt="Group" src="https://i.ibb.co/1d5Hxrw/Screenshot-429.png" />

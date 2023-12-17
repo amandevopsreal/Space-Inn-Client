@@ -11,13 +11,14 @@
   left: 0;
   top: 0;
   width: 391px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .box .div {
   height: 466px;
-  left: 70px;
   position: relative;
-  top: 37px;
   width: 255px;
 }
 

@@ -2,21 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+/* styles.css */
+
+body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-body { 
-    background: url("https://i.ibb.co/j59SBsb/5dc9bb55-142b-4057-8df9-2ecb224599df.png") no-repeat center center fixed; 
+  background: url("https://i.ibb.co/j59SBsb/5dc9bb55-142b-4057-8df9-2ecb224599df.png") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  }
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

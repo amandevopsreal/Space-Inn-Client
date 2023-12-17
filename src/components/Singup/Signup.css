@@ -247,3 +247,41 @@
   white-space: nowrap;
 }
 
+@media (max-width: 768px) {
+  .box {
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    margin: 0 auto;
+  }
+
+  .group,
+  .div {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0; /* Remove border-radius for smaller screens */
+    box-shadow: none; /* Remove box-shadow for smaller screens */
+    position: static;
+  }
+
+  .div {
+    left: 0;
+    top: 0;
+  }
+  
+  .img {
+    width: 100%;
+    height: auto;
+  }
+
+  .text-wrapper,
+  .text-wrapper-2,
+  .text-wrapper-3,
+  .text-wrapper-4,
+  .text-wrapper-5,
+  .text-wrapper-6,
+  .text-wrapper-7,
+  .text-wrapper-8,
+  .text-wrapper-9 {
+    font-size: 14px; /* Adjust font sizes for smaller screens */
+  }
+}

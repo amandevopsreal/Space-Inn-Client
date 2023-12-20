@@ -1,5 +1,5 @@
 import './App.css';
-import Signup from './components/Singup/Signup';
+import Signup from './components/Signup/Signup';
 import Login from './components/Login/Login';
 import {
   BrowserRouter as Router,

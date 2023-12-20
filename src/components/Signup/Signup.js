@@ -1,8 +1,41 @@
 
 import { Link } from "react-router-dom";
 import "./Signup.css";
+import { useState } from "react";
 
 const Signup = () => {
+
+  const[user,setUser]=useState({
+    email:"",
+    password:"",
+  })
+
+  const onChange=(e)=>{
+    setUser({
+      ...user,
+      [e.target.name]:e.target.value
+    })
+  }
+
+  const onContinue=async()=>{
+    const response = await fetch("http://localhost:5000/api/auth/createuser", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+          email: user.email,
+          password: user.password,
+      })
+    })
+    const json = await response.json()
+    console.log(json)
+    if (json.success) {
+        localStorage.setItem("token", json.authtoken)
+
+    }
+    else {
+        alert("Invalid Credentials")
+    }
+  }
 
   return (
     <div style={{display:"flex",justifyContent:"center",alignItems:"center"}} className="box">
@@ -20,13 +53,13 @@ const Signup = () => {
             <div className="text-wrapper-2">Or</div>
             <img className="line-2" alt="Line" src="https://i.ibb.co/XVdRT8m/6f620273-ca77-4e0e-be61-e5bd5b5847c9.png" />
           </div>
-          <input style={{backgroundColor:"#f8f9f7"}} className="px-2 overlap-wrapper overlap"
+          <input type="email" id="email" name="email" onChange={onChange} style={{backgroundColor:"#f8f9f7"}} className="px-2 overlap-wrapper overlap"
             placeholder="Email"
           />
-          <input style={{backgroundColor:"#f8f9f7"}} className="px-2 div-wrapper overlap"
+          <input type="password" id="password" name="password" onChange={onChange} style={{backgroundColor:"#f8f9f7"}} className="px-2 div-wrapper overlap"
             placeholder="Password"
           />
-          <button className="group-3">
+          <button onClick={onContinue} className="group-3">
             <div className="overlap-2">
               <div className="text-wrapper-5">Continue</div>
             </div>

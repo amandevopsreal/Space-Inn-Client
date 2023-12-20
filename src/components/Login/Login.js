@@ -1,9 +1,7 @@
-
-import { Link } from "react-router-dom";
-import "./Signup.css";
-
-const Signup = () => {
-
+import React from 'react'
+import { Link } from 'react-router-dom'
+import "./Login.css";
+const Login = () => {
   return (
     <div style={{display:"flex",justifyContent:"center",alignItems:"center"}} className="box">
       <div className="group">
@@ -26,28 +24,21 @@ const Signup = () => {
           <input style={{backgroundColor:"#f8f9f7"}} className="px-2 div-wrapper overlap"
             placeholder="Password"
           />
-          <button className="group-3">
+           <Link className="text-wrapper-8-login">Forgot Password?</Link>
+
+          <button className="group-3-login">
             <div className="overlap-2">
               <div className="text-wrapper-5">Continue</div>
             </div>
           </button>
-          <p className="by-creating-an">
-            <span className="span">By creating an account, you are agreeing to our</span>
-            <span className="text-wrapper-6">&nbsp;</span>
-            <span className="text-wrapper-7">Terms of Service</span>
-            <span className="span"> and</span>
-            <span className="text-wrapper-6">&nbsp;</span>
-            <span className="text-wrapper-7">Privacy Policy</span>
-            <span className="text-wrapper-6">.</span>
-          </p>
-          <div className="group-4">
-            <div className="text-wrapper-8">Already have an account?</div>
-            <Link to={"/login"} className="text-wrapper-9">Login</Link>
+          <div className="group-4-login">
+            <div className="text-wrapper-8">Dont't have an account?</div>
+            <Link to={"/login"} className="text-wrapper-9">Sign up</Link>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    </div>      
+  )
+}
 
-export default Signup;
+export default Login

@@ -1,4 +1,4 @@
-.box {
+/*.box {
     height: 548px;
     width: 391px;
   }
@@ -265,7 +265,7 @@
   @media (max-width: 768px) {
     .box {
       width: 100%;
-      max-width: 400px; /* Adjust as needed */
+      max-width: 400px;
       margin: 0 auto;
     }
   
@@ -273,8 +273,8 @@
     .div {
       width: 100%;
       max-width: 100%;
-      border-radius: 0; /* Remove border-radius for smaller screens */
-      box-shadow: none; /* Remove box-shadow for smaller screens */
+      border-radius: 0; 
+      box-shadow: none; 
       position: static;
     }
   
@@ -297,7 +297,8 @@
     .text-wrapper-7,
     .text-wrapper-8,
     .text-wrapper-9 {
-      font-size: 12px; /* Adjust font sizes for smaller screens */
+      font-size: 12px; /
     }
   }
   
+  */

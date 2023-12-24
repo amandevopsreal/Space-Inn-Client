@@ -1,0 +1,103 @@
+.box {
+    height: 75px;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 20px 10px #0000001a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.box .group {
+
+    height: 75px;
+    left: 0;
+    top: 0;
+    width: 90%;
+}
+
+.box .overlap-group {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px 10px 0px 0px;
+    height: 75px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.box .icon {
+    height: 65px;
+    width: 65px;
+}
+
+.box .navbar {
+    align-items: center;
+    display: inline-flex;
+    gap: 64px;
+    justify-content: center;
+}
+
+.box .text-wrapper {
+    color: #1a363e;
+    font-family: "Fira Sans-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+}
+
+.box .div {
+    color: #1a363e;
+    font-family: "Fira Sans-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    width: fit-content;
+}
+
+.box .frame {
+    align-items: center;
+    display: inline-flex;
+    gap: 64px;
+    justify-content: center;
+}
+
+.box .text-wrapper-2 {
+    color: #4ab943;
+    font-family: "Fira Sans-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    text-decoration: underline;
+    width: fit-content;
+}
+
+.box .vector {
+    height: 24px;
+    position: relative;
+    width: 16px;
+}
+
+.box .img {
+    height: 24px;
+    position: relative;
+    width: 24px;
+}

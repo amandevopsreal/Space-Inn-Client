@@ -27,7 +27,7 @@ const Navbar = () => {
                     </div>
                     <img className="icon" alt="Icon" src="https://i.ibb.co/1d5Hxrw/Screenshot-429.png" />
                     <div className="frame">
-                        <div className="text-wrapper-2">Manage Rental</div>
+                        <div className="text-wrapper">Manage Rental</div>
                         <div className="div">Help</div>
                         <img className="vector" alt="Vector" src="https://i.ibb.co/HNwrXHy/Vector-1.png" />
                         <img className="img" alt="Vector" src="https://i.ibb.co/6RspvRr/Vector.png" />
@@ -37,7 +37,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="dropdown_menu">
-                    <li><Link to="">Buy</Link></li>
+                    <li className=''><Link to="">Buy</Link></li>
                     <li><Link to="">Sell</Link></li>
                     <li><Link to="">Rent</Link></li>
                     <li><Link to="">Agent Finder</Link></li>

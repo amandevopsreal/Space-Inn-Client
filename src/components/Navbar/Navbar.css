@@ -33,6 +33,7 @@
 }
 
 .box .icon {
+    cursor: pointer;
     height: 65px;
     width: 65px;
 }
@@ -54,9 +55,11 @@
     margin-top: -1px;
     position: relative;
     width: fit-content;
+    cursor: pointer;
 }
 
 .box .div {
+    cursor: pointer;
     color: #1a363e;
     font-family: "Fira Sans-Regular", Helvetica;
     font-size: 24px;
@@ -77,6 +80,7 @@
 }
 
 .box .text-wrapper-2 {
+    cursor: pointer;
     color: #4ab943;
     font-family: "Fira Sans-Regular", Helvetica;
     font-size: 24px;
@@ -91,12 +95,14 @@
 }
 
 .box .vector {
+    cursor: pointer;
     height: 24px;
     position: relative;
     width: 16px;
 }
 
 .box .img {
+    cursor: pointer;
     height: 24px;
     position: relative;
     width: 24px;
@@ -118,7 +124,7 @@
     top: 60px;
     height: 0;
     width: 300px;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
     border-radius: 10px;
     overflow: hidden;
@@ -131,11 +137,22 @@
 
 }
 
+a {
+    text-decoration: none;
+    font-size: 1rem;
+}
+
 .dropdown_menu li {
     padding: 0.7rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #1a363e;
+    font-family: "Fira Sans-Regular", Helvetica;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
 
 }
 

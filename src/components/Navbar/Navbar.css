@@ -1,4 +1,4 @@
-.box {
+.boxnav {
     height: 75px;
     width: 100%;
     background-color: #ffffff;
@@ -12,7 +12,7 @@
     width: 100%;
 }
 
-.box .group {
+.boxnav .group {
 
     height: 75px;
     left: 0;
@@ -20,7 +20,7 @@
     width: 90%;
 }
 
-.box .overlap-group {
+.boxnav .overlap-group {
     width: 100%;
     background-color: #ffffff;
     border-radius: 10px 10px 0px 0px;
@@ -32,20 +32,20 @@
 
 }
 
-.box .icon {
+.boxnav .icon {
     cursor: pointer;
     height: 65px;
     width: 65px;
 }
 
-.box .navbar {
+.boxnav .navbar {
     align-items: center;
     display: inline-flex;
     gap: 64px;
     justify-content: center;
 }
 
-.box .text-wrapper {
+.boxnav .text-wrapper {
     color: #1a363e;
     font-family: "Fira Sans-Regular", Helvetica;
     font-size: 24px;
@@ -58,7 +58,7 @@
     cursor: pointer;
 }
 
-.box .div {
+.boxnav .div {
     cursor: pointer;
     color: #1a363e;
     font-family: "Fira Sans-Regular", Helvetica;
@@ -72,14 +72,14 @@
     width: fit-content;
 }
 
-.box .frame {
+.boxnav .frame {
     align-items: center;
     display: inline-flex;
     gap: 64px;
     justify-content: center;
 }
 
-.box .text-wrapper-2 {
+.boxnav .text-wrapper-2 {
     cursor: pointer;
     color: #4ab943;
     font-family: "Fira Sans-Regular", Helvetica;
@@ -94,14 +94,14 @@
     width: fit-content;
 }
 
-.box .vector {
+.boxnav .vector {
     cursor: pointer;
     height: 24px;
     position: relative;
     width: 16px;
 }
 
-.box .img {
+.boxnav .img {
     cursor: pointer;
     height: 24px;
     position: relative;

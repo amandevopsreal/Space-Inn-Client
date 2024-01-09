@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import "./Login.css";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useGoogleLogin } from "@react-oauth/google";
 
 const Login = () => {
 
@@ -20,7 +22,7 @@ const Login = () => {
 
   const navigate = useNavigate()
 
-  const handleLogin=()=>{
+  const handleLogin = () => {
     navigate("/home")
   }
 
@@ -41,13 +43,29 @@ const Login = () => {
     }
   }
 
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => {
+      axios({
+        method: "POST",
+        url: "http://localhost:5000/api/auth/googlelogin",
+        data: { access_token: codeResponse.access_token }
+      }).then(response => {
+        if (response.success) {
+          localStorage.setItem("token", response.authtoken)
+          handleLogin()
+        }
+      })
+    },
+    onError: (error) => console.log("Login Failed:", error)
+  });
+
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} className="box">
       <div className="group">
         <div className="div">
           <img className="img" alt="Group" src="https://i.ibb.co/1d5Hxrw/Screenshot-429.png" />
           <div className="overlap-group-wrapper">
-            <button className="overlap-group">
+            <button onClick={() => login()} className="overlap-group">
               <img className="flat-color-icons" alt="Flat color icons" src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg" />
               <div className="text-wrapper">Continue with Google</div>
             </button>

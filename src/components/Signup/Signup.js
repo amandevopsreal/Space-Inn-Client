@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import "./Signup.css";
 import { useState } from "react";
-import { GoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
+import { useGoogleLogin } from "@react-oauth/google";
 
 const Signup = () => {
 
@@ -46,19 +46,24 @@ const Signup = () => {
       alert("Invalid Credentials")
     }
   }
-  const responseSuccessGoogle = async (response) => {
-    console.log(response)
-    axios({
-      method: "POST",
-      url: "http://localhost:5000/api/googlelogin",
-      data: { tokenId: response.credential }
-    }).then(response => {
-      console.log(response)
-    })
-  }
-  const responseErrorGoogle = (response) => {
 
-  }
+
+
+  const login = useGoogleLogin({
+    onSuccess: async (codeResponse) => {
+      const json = await axios({
+        method: "POST",
+        url: "http://localhost:5000/api/auth/googlelogin",
+        data: { access_token: codeResponse.access_token }
+      })
+      console.log(json)
+      if (json.data.success) {
+        localStorage.setItem("token", json.data.authtoken)
+        handleSignUp()
+      }
+    },
+    onError: (error) => console.log("Login Failed:", error)
+  });
 
 
 
@@ -68,15 +73,8 @@ const Signup = () => {
       <div className="group">
         <div className="div">
           <img className="img" alt="Group" src="https://i.ibb.co/1d5Hxrw/Screenshot-429.png" />
-          <GoogleLogin
-            clientId="725204124376-92pnl02prvigj9548anq9mb4fdc4jjvf.apps.googleusercontent.com"
-            buttonText="Login"
-            onSuccess={responseSuccessGoogle}
-            onFailure={responseErrorGoogle}
-            cookiePolicy={'single_host_origin'}
-          />
           <div className="overlap-group-wrapper">
-            <button className="overlap-group">
+            <button onClick={() => login()} className="overlap-group">
               <img className="flat-color-icons" alt="Flat color icons" src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg" />
               <div className="text-wrapper">Continue with Google</div>
             </button>

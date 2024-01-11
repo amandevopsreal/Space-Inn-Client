@@ -44,17 +44,17 @@ const Login = () => {
   }
 
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) => {
-      axios({
+    onSuccess: async (codeResponse) => {
+      const json = await axios({
         method: "POST",
         url: "http://localhost:5000/api/auth/googlelogin",
         data: { access_token: codeResponse.access_token }
-      }).then(response => {
-        if (response.success) {
-          localStorage.setItem("token", response.authtoken)
-          handleLogin()
-        }
       })
+      console.log(json)
+      if (json.data.success) {
+        localStorage.setItem("token", json.data.authtoken)
+        handleLogin()
+      }
     },
     onError: (error) => console.log("Login Failed:", error)
   });

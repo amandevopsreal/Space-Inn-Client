@@ -7,11 +7,16 @@
 body {
   margin: 0;
   padding: 0;
-  background: url("https://i.ibb.co/j59SBsb/5dc9bb55-142b-4057-8df9-2ecb224599df.png") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  background: url("https://i.ibb.co/j59SBsb/5dc9bb55-142b-4057-8df9-2ecb224599df.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: #ffffff no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #root {
@@ -20,4 +25,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
 }

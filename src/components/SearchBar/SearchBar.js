@@ -4,10 +4,11 @@ import { Paper, IconButton } from "@mui/material"
 import { Search } from "@mui/icons-material"
 import Button from '@mui/material/Button';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import "./SearchBar.css"
 
 const SearchBar = () => {
     return (
-        <Stack direction={"row"} alignItems={"center"} sx={{ background: "#ffffff", justifyContent: "center", borderRadius: "10px", height: "100px", boxShadow: "0px 4px 20px 10px #0000000d", marginTop: "-50px", width: "80%" }}>
+        <Stack direction={"row"} alignItems={"center"} sx={{ background: "#ffffff", justifyContent: "center", borderRadius: "10px", height: "100px", boxShadow: "0px 4px 20px 10px #0000000d", marginTop: "-50px", width: { sm: "200%", md: "80%" } }}>
 
             <Paper
                 component={"form"}
@@ -28,12 +29,13 @@ const SearchBar = () => {
                     fontFamily: '"Fira Sans-Regular", Helvetica',
                     borderTopRightRadius: 0,
                     borderBottomRightRadius: 0,
-                    width: "30%"
+                    width: "30%",
+                    fontSize: { sm: "17px", md: "24px" }
                 }}>
                     India
                 </Button>
                 <input
-                    style={{ width: "70%", height: "100%", padding: "20px", color: "#bdbcbc", fontSize: "24px" }}
+                    style={{ width: "70%", height: "100%", padding: "20px", color: "#bdbcbc" }}
                     className="search-bar"
                     placeholder="Enter City"
                 />

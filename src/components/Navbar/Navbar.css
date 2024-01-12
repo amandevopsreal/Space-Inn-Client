@@ -124,8 +124,7 @@
     top: 60px;
     height: 0;
     width: 300px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
+    background: #ffffff;
     border-radius: 10px;
     overflow: hidden;
     transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -133,7 +132,7 @@
 }
 
 .dropdown_menu.open {
-    height: 240px;
+    height: 340px;
 
 }
 

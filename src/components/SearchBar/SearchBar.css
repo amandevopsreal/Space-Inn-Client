@@ -1,0 +1,9 @@
+.search-bar {
+    font-size: 24px;
+}
+
+@media (max-width: 600px) {
+    .search-bar {
+        font-size: 17px;
+    }
+}

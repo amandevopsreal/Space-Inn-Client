@@ -8,7 +8,7 @@ import "./SearchBar.css"
 
 const SearchBar = () => {
     return (
-        <Stack direction={"row"} alignItems={"center"} sx={{ background: "#ffffff", justifyContent: "center", borderRadius: "10px", height: "100px", boxShadow: "0px 4px 20px 10px #0000000d", marginTop: "-50px", width: { sm: "200%", md: "80%" } }}>
+        <Stack direction={"row"} alignItems={"center"} sx={{ background: "#ffffff", justifyContent: "center", borderRadius: "10px", height: "100px", boxShadow: "0px 4px 20px 10px #0000000d", marginTop: "-50px", width: { sm: "100%", md: "80%" } }}>
 
             <Paper
                 component={"form"}

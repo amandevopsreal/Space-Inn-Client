@@ -2,7 +2,7 @@ import React from 'react'
 import "./Navbar.css"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Link } from 'react-router-dom';
-
+import { Stack, Box } from '@mui/material';
 const Navbar = () => {
     const fun = () => {
         const dropDownMenu = document.querySelector('.dropdown_menu');
@@ -48,7 +48,6 @@ const Navbar = () => {
                 </div>
             </div>
         </div>
-
     )
 }
 

@@ -8,7 +8,7 @@ import "./SearchBar.css"
 
 const SearchBar = () => {
     return (
-        <Stack direction={"row"} alignItems={"center"} sx={{ background: "#ffffff", justifyContent: "center", borderRadius: "10px", height: "100px", boxShadow: "0px 4px 20px 10px #0000000d", marginTop: "-50px", width: { sm: "100%", md: "80%" } }}>
+        <Stack direction={"row"} alignItems={"center"} sx={{ background: "#ffffff", justifyContent: "center", borderRadius: "10px", height: "100px", boxShadow: "0px 4px 20px 10px #0000000d", marginTop: "-50px", width: { xs: "100%", sm: "100%", md: "80%" } }}>
 
             <Paper
                 component={"form"}
@@ -30,7 +30,10 @@ const SearchBar = () => {
                     borderTopRightRadius: 0,
                     borderBottomRightRadius: 0,
                     width: "30%",
-                    fontSize: { sm: "17px", md: "24px" }
+                    textTransform: 'none',
+                    '&:hover': {
+                        background: '#45666B'
+                    },
                 }}>
                     India
                 </Button>
@@ -39,7 +42,7 @@ const SearchBar = () => {
                     className="search-bar"
                     placeholder="Enter City"
                 />
-                <IconButton type="submit" sx={{ p: "10px", color: "#1A363E" }}>
+                <IconButton type="submit" sx={{ p: "10px", color: "#1A363E", marginRight: "25px" }}>
                     <Search />
                 </IconButton>
             </Paper>

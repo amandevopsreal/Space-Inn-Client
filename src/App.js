@@ -16,11 +16,11 @@ function App() {
     <Router>
       <Box>
         <Routes>
-          <Route exact path="/" element={<Signup />} />
+          <Route exact path="/" element={<><Navbar /><Hero /><Featured /></>} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/home" element={<><Navbar /><Hero /><Featured /></>} />
         </Routes>
-        </Box>
+      </Box>
     </Router>
   );
 }

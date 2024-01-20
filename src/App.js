@@ -9,16 +9,18 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Featured from './components/Featured/Featured';
 
 function App() {
   return (
     <Router>
-
-      <Routes>
-        <Route exact path="/" element={<><Navbar /><Hero /></>} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/home" element={<><Navbar /><Hero /></>} />
-      </Routes>
+      <Box>
+        <Routes>
+          <Route exact path="/" element={<Signup />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/home" element={<><Navbar /><Hero /><Featured /></>} />
+        </Routes>
+        </Box>
     </Router>
   );
 }

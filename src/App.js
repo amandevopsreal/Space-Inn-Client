@@ -10,13 +10,14 @@ import {
   Route,
 } from "react-router-dom";
 import Featured from './components/Featured/Featured';
+import TrendingCard from './components/Trending/TrendingCard';
 
 function App() {
   return (
     <Router>
       <Box>
         <Routes>
-          <Route exact path="/" element={<><Navbar /><Hero /><Featured /></>} />
+          <Route exact path="/" element={<TrendingCard/>} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/home" element={<><Navbar /><Hero /><Featured /></>} />
         </Routes>

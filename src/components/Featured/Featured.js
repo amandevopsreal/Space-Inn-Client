@@ -30,24 +30,28 @@ const Featured = () => {
         }
     ]
     return (
+        <>
+            <div style={{ marginTop: "90px" }} className='container'><Typography variant="h4" fontWeight={"bold"} mb={2} sx={{ color: "#1A363E", textAlign: "left", width: "100%" }}>
+                Featured Projects
+            </Typography></div>
+            <div className='container'>
+                <div className='row'>
 
-        <Stack sx={{ flexDirection: { sx: "column", md: "column" } }}>
-            <Box p={2} sx={{ flex: "2", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <Typography variant="h4" fontWeight={"bold"} mb={2} sx={{ color: "#1A363E", textAlign: "left", width: "100%" }}>
-                    Featured Projects
-                </Typography>
-                <Stack direction={"row"} flexWrap={"wrap"} gap={2} justifyContent={"start"}>
-                    {featured.map((item, idx) => {
-                        return (
-                            <Box key={idx}>
-                                <FeaturedCard featured={item} />
-                            </Box>
-                        )
-                    })}
-                </Stack>
-            </Box>
-        </Stack >
+                    {
+                        featured.map((item, idx) => {
+                            return (
+                                <div key={idx} className='col-md-4'>
+                                    <FeaturedCard featured={item} />
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+
+        </>
     )
 }
 
 export default Featured
+

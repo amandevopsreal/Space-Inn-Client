@@ -3,7 +3,7 @@ import React from 'react'
 
 const TrendingCard = () => {
     return (
-        <div class="card mb-3" style={{maxWidth: "373px"}}>
+        <div class="card mb-3" style={{maxWidth: "540px"}}>
             <div class="row g-0">
                 <div class="col-md-4">
                     <img style={{height:"100%"}} src="https://i.ibb.co/NxLH2Ph/Whats-App-Image-2024-01-21-at-01-15-34.jpg" class="img-fluid rounded-start" alt="..." />

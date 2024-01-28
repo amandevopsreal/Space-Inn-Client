@@ -4,40 +4,31 @@ import { Typography, Card, CardContent, CardMedia } from '@mui/material'
 
 const FeaturedCard = ({ featured }) => {
     return (
-        <Card sx={{ width: { xs: "100%", sm: "358px", md: "320px", borderRadius: "5px" }, boxShadow: "none" }}>
-            <Link to={""}>
-                <CardMedia image={featured.image}
-                    alt={featured.title}
-                    sx={{
-                        width: {
-                            xs: "100%",
-                            sm: "358px",
-                            md: "320px"
-
-                        }, height: 180
-                    }} />
-
-            </Link>
-            <CardContent sx={{ backgroundColor: "#SSSSSS", height: "125px" }}>
-                <Link to={""}>
-                    <Typography variant='h6' fontWeight={"bold"}
-                        color={"#1A363E"}>
-                        {featured.title}
-                    </Typography>
-                    <Typography variant='subtitle2' 
-                        color={"#45666B"}>
-                        {featured.description}
-                    </Typography>
-                </Link>
-                <Link to={""}>
-                    <Typography variant='subtitle1' fontWeight={"bold"}
-                        color={"#45666B"}>
-                        {featured.price}
-                    </Typography>
-                </Link>
-            </CardContent>
-        </Card>
-
+        <div class="card" style={{borderRadius:"5px", border:"none"}}>
+            <img src={`${featured.image}`} class="card-img-top" alt="..." />
+            <div class="card-body">
+                <h5 style={{
+                    color: "#1a363e", fontSize: "20px", fontWeight: 500, letterSpacing: 0,
+                    lineHeight: "normal"
+                }} class="card-title">{featured.title}</h5>
+                <p style={{
+                    color: "#45666b",
+                    fontFamily: "'Fira Sans-Regular', Helvetica",
+                    fontSize: "15px",
+                    fontWeight: 400,
+                    letterSpacing: 0,
+                    lineHeight: "normal"
+                }} class="card-text">{featured.description}</p>
+                <p style={{
+                    color: "#1A363E",
+                    fontFamily: "'Fira Sans-Regular', Helvetica",
+                    fontSize: "15px",
+                    fontWeight: 400,
+                    letterSpacing: 0,
+                    lineHeight: "normal"
+                }} class="card-text"><small class="text-body-secondary">{featured.price}</small></p>
+            </div>
+        </div >
     )
 }
 

@@ -40,7 +40,7 @@ const Featured = () => {
                     {
                         featured.map((item, idx) => {
                             return (
-                                <div key={idx} className='col-md-4'>
+                                <div key={idx} className='col-md-3'>
                                     <FeaturedCard featured={item} />
                                 </div>
                             )

@@ -17,7 +17,7 @@ function App() {
     <Router>
       <Box>
         <Routes>
-          <Route exact path="/" element={<><Navbar /><Hero /><Featured /><Trending /></>} />
+          <Route exact path="/" element={<><Navbar /><Hero /><Featured/><Trending /></>} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/home" element={<><Navbar /><Hero /><Featured /></>} />
         </Routes>

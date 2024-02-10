@@ -38,7 +38,7 @@ const SearchBar = () => {
                     India
                 </Button>
                 <input
-                    style={{ width: "70%", height: "100%", padding: "20px", color: "#bdbcbc" }}
+                    style={{ width: "70%", height: "100%", padding: "20px", color: "#bdbcbc",border:"none" }}
                     className="search-bar"
                     placeholder="Enter City"
                 />

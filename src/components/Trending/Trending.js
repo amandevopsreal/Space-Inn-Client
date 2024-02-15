@@ -33,7 +33,7 @@ const Trending = () => {
                 <div className='row'>
                     {upComing.map(upcomingitem => {
                         return (
-                            <div className='col-md-4'>
+                            <div className='col-sm-6 col-md-6 col-lg-4'>
                                 <TrendingCard upcomingitem={upcomingitem} />
                             </div>
                         )

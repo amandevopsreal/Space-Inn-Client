@@ -164,6 +164,15 @@
   position: absolute;
   top: 341px;
   width: 253px;
+  border-radius: 5px;
+  background-color: #22b362;
+  color: #ffffff;
+  font-family: "Fira Sans-Medium", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  border: none;
 }
 
 .box .overlap-2 {
@@ -259,8 +268,8 @@
   .div {
     width: 100%;
     max-width: 100%;
-    border-radius: 0; 
-    box-shadow: none; 
+    border-radius: 0;
+    box-shadow: none;
     position: static;
   }
 
@@ -268,7 +277,7 @@
     left: 0;
     top: 0;
   }
-  
+
   .img {
     width: 100%;
     height: auto;
@@ -283,6 +292,6 @@
   .text-wrapper-7,
   .text-wrapper-8,
   .text-wrapper-9 {
-    font-size: 12px; 
+    font-size: 12px;
   }
 }

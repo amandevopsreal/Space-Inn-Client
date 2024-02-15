@@ -5,7 +5,7 @@ import { Typography, Card, CardContent, CardMedia } from '@mui/material'
 const FeaturedCard = ({ featured }) => {
     return (
         <div class="card" style={{borderRadius:"5px", border:"none"}}>
-            <img src={`${featured.image}`} class="card-img-top" alt="..." />
+            <img src="https://i.ibb.co/NxLH2Ph/Whats-App-Image-2024-01-21-at-01-15-34.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
                 <h5 style={{
                     color: "#1a363e", fontSize: "20px", fontWeight: 500, letterSpacing: 0,
@@ -18,7 +18,7 @@ const FeaturedCard = ({ featured }) => {
                     fontWeight: 400,
                     letterSpacing: 0,
                     lineHeight: "normal"
-                }} class="card-text">{featured.description}</p>
+                }} class="card-text">{featured.address}</p>
                 <p style={{
                     color: "#1A363E",
                     fontFamily: "'Fira Sans-Regular', Helvetica",
@@ -26,7 +26,7 @@ const FeaturedCard = ({ featured }) => {
                     fontWeight: 400,
                     letterSpacing: 0,
                     lineHeight: "normal"
-                }} class="card-text"><small class="text-body-secondary">{featured.price}</small></p>
+                }} class="card-text"><small class="text-body-secondary">{featured.price} Lacs.</small></p>
             </div>
         </div >
     )

@@ -30,7 +30,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   const handleLogin = () => {
-    navigate("/home")
+    navigate("/")
   }
 
   const onContinue = async () => {

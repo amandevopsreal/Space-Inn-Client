@@ -31,7 +31,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    navigate("/home")
+    navigate("/")
   }
 
 

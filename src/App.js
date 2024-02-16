@@ -15,11 +15,12 @@ import Trending from './components/Trending/Trending';
 function App() {
   return (
     <Router>
+      
       <div className='container'>
         <Routes>
-          <Route exact path="/" element={<Signup />} />
+          <Route exact path="/" element={<><Navbar /><Hero /><Featured /><Trending /><Footer /></>} />
+          <Route exact path="/signup" element={<Signup/>} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/home" element={<><Navbar /><Hero /><Featured /><Trending /><Footer /></>} />
         </Routes>
       </div>
     </Router>

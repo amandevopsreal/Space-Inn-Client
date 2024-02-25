@@ -5,15 +5,51 @@ import SpaceIcon from "/Users/aman/space-inn-client/src/assets/Group-16.svg"
 import { Button } from '@mui/material'
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react'
+import locationContext from '../../context/location/locationContext';
 
 const Navbar = () => {
     const navigate = useNavigate()
     const handleAuth = () => {
         navigate("/signup")
     }
+    const context = useContext(locationContext)
+    const { setCurrentLocation, location } = context
+    let apiEndpoint = "https://api.opencagedata.com/geocode/v1/json"
+    let apiKey = "a47bdc1d5b30434395346c0859645b82"
+    const getUserCurrentAddress = async (latitude, longitude) => {
+        let query = `${latitude},${longitude}`
+        let apiUrl = `${apiEndpoint}?key=${apiKey}&q=${query}&pretty=1`
+        try {
+            const res = await fetch(apiUrl)
+            const data = await res.json()
+            console.log(data.results[0].components.state_district)
+            setCurrentLocation(data.results[0].components.state_district)
+            console.log(location)
+
+        }
+        catch {
+
+        }
+    }
+    const getLocation = () => {
+        console.log("aman")
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords
+                    console.log(latitude, longitude)
+                    getUserCurrentAddress(latitude, longitude)
+                },
+                (error) => {
+                    console.log(error.message)
+                }
+            )
+        }
+    }
     return (
         <div style={{}} className='container'>
-            <nav style={{ borderTopLeftRadius: "10px",borderTopRightRadius: "10px", boxShadow: "0px 4px 20px 10px #0000001a" }} class="navbar navbar-expand-lg bg-body-tertiary bg-primary">
+            <nav style={{ borderTopLeftRadius: "10px", borderTopRightRadius: "10px", boxShadow: "0px 4px 20px 10px #0000001a" }} class="navbar navbar-expand-lg bg-body-tertiary bg-primary">
                 <div class="container-fluid">
                     <img style={{ width: "65px", height: "65px" }} className="icon" alt="Icon" src="https://i.ibb.co/1d5Hxrw/Screenshot-429.png" />
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +76,7 @@ const Navbar = () => {
                             <li class="nav-item">
                                 <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link">Help</a>
                             </li>
-                            <li class="nav-item">
+                            <li style={{cursor:"pointer"}} onClick={() => { getLocation() }} class="nav-item">
                                 <a class="nav-link"><LocationOnIcon /></a>
                             </li>
                             <li class="nav-item">

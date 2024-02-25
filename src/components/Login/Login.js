@@ -96,7 +96,7 @@ const Login = () => {
             </button>
             <div className="group-4-login">
               <div className="text-wrapper-8">Dont't have an account?</div>
-              <Link to={"/"} className="text-wrapper-9">Sign up</Link>
+              <Link to={"/signup"} className="text-wrapper-9">Sign up</Link>
             </div>
           </div>
         </div>

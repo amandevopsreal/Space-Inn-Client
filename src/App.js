@@ -11,19 +11,24 @@ import {
 } from "react-router-dom";
 import Featured from './components/Featured/Featured';
 import Trending from './components/Trending/Trending';
+import LocationState from './context/location/LocationState';
+import Property from './components/Property/Property';
 
 function App() {
   return (
-    <Router>
-      
-      <div className='container'>
-        <Routes>
-          <Route exact path="/" element={<><Navbar /><Hero /><Featured /><Trending /><Footer /></>} />
-          <Route exact path="/signup" element={<Signup/>} />
-          <Route exact path="/login" element={<Login />} />
-        </Routes>
-      </div>
-    </Router>
+    <LocationState>
+
+      <Router>
+
+        <div className='container'>
+          <Routes>
+            <Route exact path="/" element={/*<><Navbar /><Hero /><Featured /><Trending /><Footer /></>*/<><Navbar/><Property/></>} />
+            <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </Router>
+    </LocationState>
   );
 }
 

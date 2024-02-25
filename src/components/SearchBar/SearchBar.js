@@ -5,8 +5,12 @@ import { Search } from "@mui/icons-material"
 import Button from '@mui/material/Button';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import "./SearchBar.css"
+import { useContext } from 'react'
+import locationContext from '../../context/location/locationContext';
 
 const SearchBar = () => {
+    const context = useContext(locationContext)
+    const {location  } = context
     return (
         <Stack direction={"row"} alignItems={"center"} sx={{ background: "#ffffff", justifyContent: "center", borderRadius: "10px", height: "100px", boxShadow: "0px 4px 20px 10px #0000000d", marginTop: "-50px", width: { xs: "100%", sm: "100%", md: "82%" } }}>
 
@@ -35,7 +39,7 @@ const SearchBar = () => {
                         background: '#45666B'
                     },
                 }}>
-                    India
+                    {localStorage.getItem("location")?localStorage.getItem("location"):"India"}
                 </Button>
                 <input
                     style={{ width: "70%", height: "100%", padding: "20px", color: "#bdbcbc",border:"none" }}

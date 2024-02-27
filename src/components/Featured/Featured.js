@@ -1,7 +1,6 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Box, Stack, Typography } from "@mui/material";
 import FeaturedCard from './FeaturedCard';
-
 const Featured = () => {
     const location = "Lucknow"
     const [featured, setFeatured] = useState([])
@@ -23,6 +22,7 @@ const Featured = () => {
     useEffect(() => {
         getUpcoming()
     }, [location])
+
     return (
         <>
             <div style={{ marginTop: "90px" }} className='container'><Typography variant="h4" fontWeight={"bold"} mb={2} sx={{ color: "#1A363E", textAlign: "left", width: "100%" }}>

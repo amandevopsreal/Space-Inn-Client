@@ -1,9 +1,17 @@
 import { Height } from '@mui/icons-material'
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom';
 const TrendingCard = ({ upcomingitem }) => {
+    const navigate = useNavigate()
+
+    const handleView = (_id) => {
+        navigate(`/property/${_id}`)
+    }
+    const onView = (_id) => {
+        handleView(_id)
+    }
     return (
-        <div class="card mb-3" style={{ maxWidth: "540px", boxShadow: "0px 4px 10px 5px #0000001a", borderRadius: "10px", border: "none" }}>
+        <div onClick={() => { onView(upcomingitem._id) }} class="card mb-3" style={{ cursor: "pointer", maxWidth: "540px", boxShadow: "0px 4px 10px 5px #0000001a", borderRadius: "10px", border: "none" }}>
             <div class="row g-0">
                 <div class="col-md-4">
                     <img style={{ height: "100%" }} src={`${upcomingitem.images[0]}`} class="img-fluid rounded-start" alt="..." />

@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Property.css"
 import Button from '@mui/material/Button';
 import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
-
+import { useSearchParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 const Property = () => {
+    const { _id } = useParams();
+    const getProperty = async () => {
+        const response = await fetch(`http://localhost:5000/api/properties/property/view/${_id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": localStorage.getItem("token")
+            },
+        });
+        const json = await response.json()
+        console.log(json)
+    }
+    useEffect(() => {
+        getProperty()
+    }, [_id])
     return (
         <div className='container'>
             <div className='property-container'>

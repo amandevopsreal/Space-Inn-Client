@@ -22,9 +22,10 @@ function App() {
 
         <div className='container'>
           <Routes>
-            <Route exact path="/" element={/*<><Navbar /><Hero /><Featured /><Trending /><Footer /></>*/<><Navbar/><Property/></>} />
+            <Route exact path="/" element={<><Navbar /><Hero /><Featured /><Trending /><Footer /></>} />
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
+            <Route exact path="/property/:_id" element={<><Navbar /><Property /></>} />
           </Routes>
         </div>
       </Router>

@@ -4,7 +4,48 @@ import Button from '@mui/material/Button';
 import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
 import { useSearchParams } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
+import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
+import { Gallery } from "react-grid-gallery";
+
 const Property = () => {
+    const images = [
+        {
+            src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
+            width: 280,
+            height: 261,
+        },
+        {
+            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
+            width: 176,
+            height: 125,
+        },
+        {
+            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+            width: 72,
+            height: 125,
+        },
+        {
+            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+            width: 72,
+            height: 125,
+        },
+        {
+            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+            width: 280,
+            height: 125,
+        },
+        {
+            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+            width: 176,
+            height: 125,
+        },
+        {
+            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+            width: 488,
+            height: 125,
+        },
+    ];
     const { _id } = useParams();
     const getProperty = async () => {
         const response = await fetch(`http://localhost:5000/api/properties/property/view/${_id}`, {
@@ -35,6 +76,18 @@ const Property = () => {
                         <p style={{ fontWeight: 400, fontSize: "15px" }}><span style={{ color: "rgba(34, 179, 98, 1)" }}>EMI</span> starts at ₹22.72 K</p>
                         <Button sx={{ borderRadius: "10px", background: "rgba(34, 179, 98, 1)" }} variant="contained"><CallOutlinedIcon /> Contact Developer</Button>
 
+                    </div>
+                </div>
+                <div className='prop-sec-2'>
+                    <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+                        <span style={{ fontWeight: 400, fontSize: "16px", color: "rgba(0, 0, 0, 1)" }}>Gallery</span>
+                        <div style={{ display: "flex", gap: "20px" }}>
+                            <ShareOutlinedIcon />
+                            <TurnedInNotOutlinedIcon />
+                        </div>
+                    </div>
+                    <div style={{ width: "100%",marginTop:"15px" }}>
+                        <Gallery margin={10} images={images} />
                     </div>
                 </div>
             </div>

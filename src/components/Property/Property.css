@@ -32,3 +32,10 @@
         text-align: left;
     }
 }
+
+.prop-sec-2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}

@@ -86,8 +86,29 @@ const Property = () => {
                             <TurnedInNotOutlinedIcon />
                         </div>
                     </div>
-                    <div style={{ width: "100%",marginTop:"15px" }}>
-                        <Gallery margin={10} images={images} />
+                    <div style={{ width: "100%", marginTop: "15px" }}>
+                        <Gallery images={images} />
+                    </div>
+                </div>
+                <div className='prop-sec-3'>
+                    <div className='prop-sec-3-cont' style={{ width: "95%", display: "flex" }}>
+                        <div className='sec-3-sub' id='sec-3-sub-1' style={{ borderRight: '1px solid rgba(0, 0, 0, 1)', justifyContent: "center", alignItems: "flex-start", flexDirection: "column" }}>
+                            <div>
+                                <p className='sec-3-head'>2, 3 BHK Apartments</p>
+                                <p style={{ width: "100%", textAlign: "center" }} className='sec-3-sub-head'>Configurations</p>
+                            </div>
+                        </div>
+                        <div className='sec-3-sub' id='sec-3-sub-2' style={{ flexDirection: "column", justifyContent: "center", alignItems: "center", borderRight: '1px solid rgba(0, 0, 0, 1)' }}>
+                            <p className='sec-3-head'>Dec, 2026</p>
+                            <p className='sec-3-sub-head'>Possession Starts</p>
+                        </div>
+                        <div className='sec-3-sub' id='sec-3-sub-3' style={{ flexDirection: "column", justifyContent: "center", alignItems: "center", borderRight: '1px solid rgba(0, 0, 0, 1)' }}>
+                            <p className='sec-3-head'>₹3.37 K/sq. Ft</p>
+                            <p className='sec-3-sub-head'>Avg. Price</p>
+                        </div>
+                        <div className='sec-3-sub' id='sec-3-sub-4' style={{ justifyContent: "flex-end", alignItems: "center", paddingLeft: "10px" }}>
+                            <p className='sec-3-head'>1275.00 sq.ft. - 1515.00 sq.ft.</p>
+                        </div>
                     </div>
                 </div>
             </div>

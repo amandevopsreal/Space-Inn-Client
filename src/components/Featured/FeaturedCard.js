@@ -13,7 +13,7 @@ const FeaturedCard = ({ featured }) => {
     }
     return (
         <div onClick={() => { onView(featured._id) }} class="card" style={{ cursor: "pointer", borderRadius: "5px", border: "none", boxShadow: "0px 4px 10px 5px #0000001a" }}>
-            <img style={{ height: "244px", width: "100%" }} src={`${featured.images[0]}`} class="card-img-top" alt="..." />
+            <img style={{ height: "100%" }} src={`${featured.images[0]}`} class="card-img-top" alt="..." />
             <div class="card-body">
                 <h5 style={{
                     color: "#1a363e", fontSize: "20px", fontWeight: 500, letterSpacing: 0,

@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
 import { Gallery } from "react-grid-gallery";
-
+import TimeToLeaveOutlinedIcon from '@mui/icons-material/TimeToLeaveOutlined';
 const Property = () => {
     const images = [
         {
@@ -62,7 +62,7 @@ const Property = () => {
         getProperty()
     }, [_id])
     return (
-        <div className='container'>
+        <div className='container property-main'>
             <div className='property-container'>
                 <div className='prop-sec-1'>
                     <div className='prop-sub-sec-1'>
@@ -110,6 +110,58 @@ const Property = () => {
                             <p className='sec-3-head'>1275.00 sq.ft. - 1515.00 sq.ft.</p>
                         </div>
                     </div>
+                </div>
+                <div className='prop-sec-4'>
+                    <div className='container' style={{marginTop:"20px"}} >
+                        <div className='row' style={{marginLeft:"5%"}}>
+                            <div className='col-md-6'>
+                                <p style={{ color: "rgba(0, 0, 0, 1)", fontWeight: 500, fontSize: "24px" }} className=''>Rage Golden Spring Amenities</p>
+                            </div>
+                        </div>
+                        <div className='container' style={{ display: "flex", flexWrap: 'wrap',width:"80%" }}>
+                            <div style={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                <TimeToLeaveOutlinedIcon />
+                                <p>Rain Water Harvesting</p>
+                            </div>
+                            <div style={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                <TimeToLeaveOutlinedIcon />
+                                <p>Rain Water Harvesting</p>
+                            </div>
+                            <div style={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                <TimeToLeaveOutlinedIcon />
+                                <p>Rain Water Harvesting</p>
+                            </div>
+                            <div style={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                <TimeToLeaveOutlinedIcon />
+                                <p>Rain Water Harvesting</p>
+                            </div>
+                            <div style={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                <TimeToLeaveOutlinedIcon />
+                                <p>Rain Water Harvesting</p>
+                            </div>
+                            <div style={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                <TimeToLeaveOutlinedIcon />
+                                <p>Rain Water Harvesting</p>
+                            </div>
+                            <div style={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                <TimeToLeaveOutlinedIcon />
+                                <p>Rain Water Harvesting</p>
+                            </div>
+                            <div style={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                <TimeToLeaveOutlinedIcon />
+                                <p>Rain Water Harvesting</p>
+                            </div>
+                            <div style={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                <TimeToLeaveOutlinedIcon />
+                                <p>Rain Water Harvesting</p>
+                            </div>
+                            <div style={{ width: "20%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                                <TimeToLeaveOutlinedIcon />
+                                <p>Rain Water Harvesting</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

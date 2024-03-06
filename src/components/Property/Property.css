@@ -96,3 +96,19 @@
         justify-content: center !important;
     }
 }
+
+.prop-sec-4 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    box-shadow: 2px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 1279px) {
+    .property-main{
+        width: 90%;
+    }
+}

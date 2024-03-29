@@ -8,6 +8,7 @@ import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
 import { Gallery } from "react-grid-gallery";
 import TimeToLeaveOutlinedIcon from '@mui/icons-material/TimeToLeaveOutlined';
+import DownloadIcon from '@mui/icons-material/Download';
 const Property = () => {
     const images = [
         {
@@ -134,6 +135,32 @@ const Property = () => {
                         </div>
                     </div>
 
+                </div>
+                <div className='prop-sec-5'>
+                    <div className='prop-sub-sec-1' style={{ textAlign: "center" }}>
+                        <h1>Rage Golden Spring - Brochure</h1>
+                        <div style={{display:"flex",gap:"10px",justifyContent:"center",alignItems:"center"}}>
+                            <img style={{width:"80px",height:"76px"}} src="https://i.ibb.co/861XbSC/Rectangle-70.png"/>
+                            <img style={{width:"80px",height:"76px"}} src="https://i.ibb.co/861XbSC/Rectangle-70.png"/>
+                            <img style={{width:"80px",height:"76px"}} src="https://i.ibb.co/861XbSC/Rectangle-70.png"/>
+                            <img style={{width:"80px",height:"76px"}} src="https://i.ibb.co/861XbSC/Rectangle-70.png"/>
+                        </div>
+                        <Button sx={{ borderRadius: "10px", background: "rgba(34, 179, 98, 1)",marginTop:"20px" }} variant="contained"><DownloadIcon /> Download Brochure</Button>
+                    </div>
+                    <div className='prop-sub-sec-2' style={{display:"flex"}}>
+                        <div style={{width:"20%",display:"flex",justifyContent:"center",alignItems:"center"}}>
+                            <img src="https://i.ibb.co/mT0Rxht/Ellipse-1.png"/>
+                        </div>
+                        <div style={{width:"80%",textAlign:"center"}}> 
+                            <h1>Rage Golden Spring Developer</h1>
+                            <div style={{display:"flex",justifyContent:"space-between"}}>
+                                <p>2009 Established</p>
+                                <p>56 projects</p>
+                                <p>56 projects</p>
+                            </div>
+                            <p style={{textAlign:"left"}}>Lorem ipsum dolor sit amet consectetur. Feugiat posuere ac orci enim volutpat sit volutpat. Dolor platea sed vulputate proin libero. Morbi enim tellus varius auctor sed risus. Mi malesuada a arcu ut eu elementum sed sit.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

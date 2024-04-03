@@ -14,9 +14,9 @@ const Footer = () => {
                     <div style={{ marginTop: "2rem" }}>
                         <p style={{ fontWeight: 600 }}>Company Information:</p>
                         <ul>
-                            <li>Company address</li>
-                            <li>Phone number</li>
-                            <li>Email address</li>
+                            <li>284/18, Lucknow</li>
+                            <li>8840542151</li>
+                            <li>spacein@gmail.com</li>
                         </ul>
                     </div>
                 </div>
@@ -27,10 +27,11 @@ const Footer = () => {
                     </div>
                     <div style={{ marginTop: "2rem" }}>
                         <p style={{ fontWeight: 600 }}>Connect with us:</p>
-                        <div style={{ display: "flex" }}>
-                            <img />
-                            <img />
-                            <img />
+                        <div style={{ display: "flex",gap:"45px" }}>
+                            <img src='https://i.ibb.co/qJrRfr6/Vector.png' />
+                            <img src='https://i.ibb.co/qJrRfr6/Vector.png' />
+                            <img src='https://i.ibb.co/qJrRfr6/Vector.png' />
+                            <img src='https://i.ibb.co/qJrRfr6/Vector.png' />
                         </div>
                     </div>
                 </div>

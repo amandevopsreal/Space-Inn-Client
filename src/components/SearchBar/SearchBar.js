@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Stack } from '@mui/material'
 import { Paper, IconButton } from "@mui/material"
 import { Search } from "@mui/icons-material"
@@ -10,7 +10,21 @@ import locationContext from '../../context/location/locationContext';
 
 const SearchBar = () => {
     const context = useContext(locationContext)
-    const {location  } = context
+    const { setCurrentLocation } = context
+    const [city, setCity] = useState("")
+    const [selectedCity, setSelectedCity] = useState(null);
+    const handleSelect = (city) => {
+        setSelectedCity(city);
+        //onSelect(city);
+    };
+    const indianCities = [
+        'Mumbai',
+        'Delhi',
+        'Bangalore',
+        'Hyderabad',
+        'Chennai',
+        // Add more cities as needed
+      ];
     return (
         <Stack direction={"row"} alignItems={"center"} sx={{ background: "#ffffff", justifyContent: "center", borderRadius: "10px", height: "100px", boxShadow: "0px 4px 20px 10px #0000000d", marginTop: "-50px", width: { xs: "100%", sm: "100%", md: "82%" } }}>
 
@@ -39,14 +53,18 @@ const SearchBar = () => {
                         background: '#45666B'
                     },
                 }}>
-                    {localStorage.getItem("location")?localStorage.getItem("location"):"India"}
+                    {localStorage.getItem("location") ? localStorage.getItem("location") : "India"}
                 </Button>
-                <input
-                    style={{ width: "70%", height: "100%", padding: "20px", color: "#bdbcbc",border:"none" }}
-                    className="search-bar"
-                    placeholder="Enter City"
-                />
-                <IconButton type="submit" sx={{ p: "10px", color: "#1A363E", marginRight: "25px" }}>
+                    <select style={{ width: "70%", height: "100%", padding: "20px", color: "#bdbcbc",border:"none" }} onChange={(e) => setCurrentLocation(e.target.value)}>
+                        <option value="">Select</option>
+                        {indianCities.map((city, index) => (
+                            <option key={index} value={city}>
+                                {city}
+                            </option>
+                        ))}
+                    </select>
+
+                <IconButton onClick={() => setCurrentLocation(city)} type="submit" sx={{ p: "10px", color: "#1A363E", marginRight: "25px" }}>
                     <Search />
                 </IconButton>
             </Paper>

@@ -4,8 +4,6 @@ import "./Signup.css";
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { useGoogleLogin } from "@react-oauth/google";
-import { Height } from '@mui/icons-material';
-import { display, height } from '@mui/system';
 
 const Signup = () => {
   useEffect(()=>{

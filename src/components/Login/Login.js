@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useGoogleLogin } from "@react-oauth/google";
 
 const Login = () => {
+  const [isInvalid,setIsInvalid]=useState(false)
   useEffect(() => {
     const e = document.getElementById("root")
     e.style.backgroundImage = "url('https://i.ibb.co/2ZBMr59/texture.png')";
@@ -19,6 +20,12 @@ const Login = () => {
     email: "",
     password: "",
   })
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setIsInvalid(false)
+    },3000)
+  },[isInvalid])
 
   const onChange = (e) => {
     setUser({
@@ -46,7 +53,7 @@ const Login = () => {
       handleLogin()
     }
     else {
-      alert("Invalid Credentials")
+      setIsInvalid(true)
     }
   }
 
@@ -91,8 +98,8 @@ const Login = () => {
             />
             <Link className="text-wrapper-8-login">Forgot Password?</Link>
 
-            <button onClick={onContinue} className="group-3-login">
-              Continue
+            <button style={{color:`${isInvalid?"red":""}`,backgroundColor:`${isInvalid?"transparent":""}`}} onClick={onContinue} className="group-3-login">
+              {isInvalid?"Invalid Credentials":"Continue"}
             </button>
             <div className="group-4-login">
               <div className="text-wrapper-8">Dont't have an account?</div>

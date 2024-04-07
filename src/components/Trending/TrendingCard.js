@@ -14,7 +14,7 @@ const TrendingCard = ({ upcomingitem }) => {
         <div onClick={() => { onView(upcomingitem._id) }} class="card mb-3" style={{ cursor: "pointer", maxWidth: "540px", boxShadow: "0px 4px 10px 5px #0000001a", borderRadius: "10px", border: "none" }}>
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img style={{ height: "100%" }} src={`${upcomingitem.images[0]}`} class="img-fluid rounded-start" alt="..." />
+                    <img style={{width:"100%",height:"244px",objectFit:"cover",borderRadius:"5px"}} src={`${upcomingitem.images[0]}`} class="img-fluid rounded-start" alt="..." />
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">

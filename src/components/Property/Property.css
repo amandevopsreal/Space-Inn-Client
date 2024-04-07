@@ -23,6 +23,11 @@
         display: flex;
         flex-direction: column;
     }
+    .prop-sec-5 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 
     .prop-sub-sec-1 {
         width: 100%;

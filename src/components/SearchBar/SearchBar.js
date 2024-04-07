@@ -41,7 +41,7 @@ const SearchBar = () => {
                     width: "100%",
                     justifyContent: "center"
                 }}>
-                <Button endIcon={<ArrowDropDownIcon />} sx={{
+                <Button sx={{
                     display: 'flex', alignItems: "center", background: "#45666B", height: "100%", borderRadius: "10px",
                     color: "#ffffff",
                     fontFamily: '"Fira Sans-Regular", Helvetica',
@@ -55,7 +55,7 @@ const SearchBar = () => {
                 }}>
                     {localStorage.getItem("location") ? localStorage.getItem("location") : "India"}
                 </Button>
-                    <select style={{ width: "70%", height: "100%", padding: "20px", color: "#bdbcbc",border:"none" }} onChange={(e) => setCurrentLocation(e.target.value)}>
+                    <select style={{borderRadius:"10px",outline:0,border:0,width: "70%", height: "100%", padding: "20px", color: "#bdbcbc",border:"none" }} onChange={(e) => setCurrentLocation(e.target.value)}>
                         <option value="">Select</option>
                         {indianCities.map((city, index) => (
                             <option key={index} value={city}>
@@ -63,10 +63,6 @@ const SearchBar = () => {
                             </option>
                         ))}
                     </select>
-
-                <IconButton onClick={() => setCurrentLocation(city)} type="submit" sx={{ p: "10px", color: "#1A363E", marginRight: "25px" }}>
-                    <Search />
-                </IconButton>
             </Paper>
         </Stack>
     )

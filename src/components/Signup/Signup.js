@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useGoogleLogin } from "@react-oauth/google";
 
 const Signup = () => {
+  const [isInvalid,setIsInvalid]=useState(false)
   useEffect(()=>{
     const e=document.getElementById("root")
     e.style.backgroundImage = "url('https://i.ibb.co/2ZBMr59/texture.png')";
@@ -14,6 +15,12 @@ const Signup = () => {
       e.style.backgroundImage = "url('')";
     }
   },[])
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setIsInvalid(false)
+    },3000)
+  },[isInvalid])
 
   const [user, setUser] = useState({
     email: "",
@@ -51,7 +58,7 @@ const Signup = () => {
 
     }
     else {
-      alert("Invalid Credentials")
+      setIsInvalid(true)
     }
   }
 
@@ -99,8 +106,8 @@ const Signup = () => {
             <input type="password" id="password" name="password" onChange={onChange} style={{ backgroundColor: "#f8f9f7" }} className="px-2 div-wrapper overlap"
               placeholder="Password"
             />
-            <button onClick={onContinue} className="group-3">
-              Continue
+            <button style={{color:`${isInvalid?"red":""}`,backgroundColor:`${isInvalid?"transparent":""}`}} onClick={onContinue} className="group-3">
+              {isInvalid?"Invalid Credentials":"Continue"}
             </button>
             <p className="by-creating-an">
               <span className="span">By creating an account, you are agreeing to our</span>

@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Stack, Typography } from "@mui/material";
 import TrendingCard from './TrendingCard';
-
+import { useContext } from 'react'
+import locationContext from '../../context/location/locationContext';
 const Trending = () => {
-    const location = "Lucknow"
     const [upComing, setUpComing] = useState([])
-
+    const context = useContext(locationContext)
+    const { location } = context
     const getUpcoming = async () => {
-        const response = await fetch(`http://localhost:5000/api/properties/upcoming`, {
-            method: "POST",
+        const response = await fetch(`http://localhost:5000/api/properties/upcoming/Lucknow`, {
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": localStorage.getItem("token")
             },
-            body: JSON.stringify({ location })
         });
         const json = await response.json()
         console.log(json)

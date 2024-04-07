@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { Box, Stack, Typography } from "@mui/material";
 import FeaturedCard from './FeaturedCard';
+import { useContext } from 'react'
+import locationContext from '../../context/location/locationContext';
+import "./Featured.css"
 const Featured = () => {
-    const location = "Lucknow"
     const [featured, setFeatured] = useState([])
-
+    const context = useContext(locationContext)
+    const { location } = context
     const getUpcoming = async () => {
-        const response = await fetch(`http://localhost:5000/api/properties/featured`, {
-            method: "POST",
+        const response = await fetch(`http://localhost:5000/api/properties/featured/Lucknow`, {
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": localStorage.getItem("token")
             },
-            body: JSON.stringify({ location })
         });
         const json = await response.json()
         console.log(json)
@@ -29,7 +31,7 @@ const Featured = () => {
                 Featured Projects
             </Typography></div>
             <div className='container'>
-                <div className='row'>
+                <div className='row row-spl'>
 
                     {
                         featured.map((item, idx) => {

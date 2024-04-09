@@ -62,29 +62,30 @@ const Navbar = () => {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul style={{ display: "flex", width: "100%", justifyContent: "space-between" }} class="navbar-nav">
                             <li class="nav-item">
-                                <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link" href="#">Buy</a>
+                                <Link to="/buy"><a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link" href="#">Buy</a>
+                                </Link>
                             </li>
                             <li class="nav-item">
                                 <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link active" aria-current="page" href="#">Sell</a>
                             </li>
-                            <li class="nav-item">
+                            <Link to="/rent"><li class="nav-item">
                                 <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link" href="#">Rent</a>
-                            </li>
+                            </li></Link>
                             <li class="nav-item">
                                 <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link" href="#">Agent Finder</a>
                             </li>
 
                             <li class="nav-item">
-                                <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px",cursor:"pointer" }} class="nav-link">Manage Rental</a>
+                                <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px", cursor: "pointer" }} class="nav-link">Manage Rental</a>
                             </li>
                             <li class="nav-item">
-                                <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px",cursor:"pointer" }} class="nav-link">Help</a>
+                                <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px", cursor: "pointer" }} class="nav-link">Help</a>
                             </li>
-                            <li style={{cursor:"pointer"}} onClick={() => { getLocation() }} class="nav-item">
+                            <li style={{ cursor: "pointer" }} onClick={() => { getLocation() }} class="nav-item">
                                 <a class="nav-link"><LocationOnIcon /></a>
                             </li>
                             <li class="nav-item">
-                                {localStorage.getItem("token") ?<Button variant="outlined" onClick={() => { handleLogOut() }} sx={{
+                                {localStorage.getItem("token") ? <Button variant="outlined" onClick={() => { handleLogOut() }} sx={{
                                     background: "#ffffff", borderRadius: "10px",
                                     color: "#1a363e",
                                     fontFamily: '"Fira Sans-Regular", Helvetica',
@@ -97,7 +98,7 @@ const Navbar = () => {
                                 }}>
                                     <PersonOutlineOutlinedIcon />
                                     Log out
-                                </Button>  : <Button variant="outlined" onClick={() => { handleAuth() }} sx={{
+                                </Button> : <Button variant="outlined" onClick={() => { handleAuth() }} sx={{
                                     background: "#ffffff", borderRadius: "10px",
                                     color: "#1a363e",
                                     fontFamily: '"Fira Sans-Regular", Helvetica',

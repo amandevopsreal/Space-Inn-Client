@@ -24,7 +24,7 @@ const SearchBar = () => {
         'Hyderabad',
         'Chennai',
         // Add more cities as needed
-      ];
+    ];
     return (
         <Stack direction={"row"} alignItems={"center"} sx={{ background: "#ffffff", justifyContent: "center", borderRadius: "10px", height: "100px", boxShadow: "0px 4px 20px 10px #0000000d", marginTop: "-50px", width: { xs: "100%", sm: "100%", md: "82%" } }}>
 
@@ -55,14 +55,14 @@ const SearchBar = () => {
                 }}>
                     {localStorage.getItem("location") ? localStorage.getItem("location") : "India"}
                 </Button>
-                    <select style={{borderRadius:"10px",outline:0,border:0,width: "70%", height: "100%", padding: "20px", color: "#bdbcbc",border:"none" }} onChange={(e) => setCurrentLocation(e.target.value)}>
-                        <option value="">Select</option>
-                        {indianCities.map((city, index) => (
-                            <option key={index} value={city}>
-                                {city}
-                            </option>
-                        ))}
-                    </select>
+                <select style={{ borderRadius: "10px", outline: 0, border: 0, width: "70%", height: "100%", padding: "20px", color: "#bdbcbc", border: "none" }} onChange={(e) => setCurrentLocation(e.target.value)}>
+                    <option value="">Select</option>
+                    {indianCities.map((city, index) => (
+                        <option key={index} value={city}>
+                            {city}
+                        </option>
+                    ))}
+                </select>
             </Paper>
         </Stack>
     )

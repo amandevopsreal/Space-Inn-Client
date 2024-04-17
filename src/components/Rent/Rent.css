@@ -1,18 +1,36 @@
-.view-sec {
+.view-sec{
     width: 80%;
 }
-
-.filter-heading {
+.filter-heading{
     font-size: 20px;
     font-weight: 500;
+}
+.options{
+    display: flex;
+    width: 100%;
+}
+.mobile-options{
+    display: none;
+}
+.amenties-div{
+    display: flex;
 }
 @media screen and (max-width: 1199px) {
     .view-sec{
         width: 100%;
     }
+    .amenties-div{
+        display: none;
+    }
 }
 @media screen and (max-width: 991px) {
-    .view-sec{
+    .options{
+        display: none;
+    }
+    .mobile-options{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
     }
 }

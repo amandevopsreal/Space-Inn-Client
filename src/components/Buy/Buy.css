@@ -12,9 +12,15 @@
 .mobile-options{
     display: none;
 }
+.amenties-div{
+    display: flex;
+}
 @media screen and (max-width: 1199px) {
     .view-sec{
         width: 100%;
+    }
+    .amenties-div{
+        display: none;
     }
 }
 @media screen and (max-width: 991px) {

@@ -5,6 +5,11 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import { useNavigate } from 'react-router-dom';
+import LandscapeIcon from '@mui/icons-material/Landscape';
+import SolarPowerIcon from '@mui/icons-material/SolarPower';
+import FenceIcon from '@mui/icons-material/Fence';
+import NoEncryptionIcon from '@mui/icons-material/NoEncryption';
+import TimeToLeaveOutlinedIcon from '@mui/icons-material/TimeToLeaveOutlined';
 
 const style = {
     position: 'absolute',
@@ -54,15 +59,15 @@ const Buy = () => {
     const [maxBudget, setMaxBudget] = useState(0)
     const [rooms, setRooms] = useState(0)
     const [location, setLocation] = useState("Lucknow")
-    const [rmove, setRmove] = useState(false)
-    const [progress, setProgress] = useState(false)
+    const [rmove, setRmove] = useState("")
+    const [progress, setProgress] = useState("")
     const [property, setProperty] = useState([])
     const readyToMoveValue = (e) => {
-        e ? setRmove(true) : setRmove(false)
+        e ? setRmove("ready") : setRmove("")
     }
 
     const progressValue = (e) => {
-        e ? setProgress(true) : setProgress(false)
+        e ? setProgress("upcoming") : setProgress("")
     }
 
     useEffect(() => {
@@ -83,8 +88,8 @@ const Buy = () => {
         if (minBudget) url += `&minbudget=${encodeURIComponent(minBudget)}`;
         if (maxBudget) url += `&maxbudget=${encodeURIComponent(maxBudget)}`;
         if (rooms) url += `&rooms=${encodeURIComponent(rooms)}`;
-        url += `&rmove=${encodeURIComponent(rmove)}`;
-        url += `&progress=${encodeURIComponent(progress)}`;
+        if (rmove) url += `&rmove=${encodeURIComponent(rmove)}`;
+        if (progress) url += `&progress=${encodeURIComponent(progress)}`;
         fetch(url)
             .then(response => response.json())
             .then(data => setProperty(data))
@@ -92,7 +97,7 @@ const Buy = () => {
     }, [location, minBudget, maxBudget, rooms, rmove, progress]);
 
     return (
-        <div className='container' style={{ display: "flex" }}>
+        <div className='container' style={{ display: "flex",marginBottom:"20px" }}>
             <div className='view-sec'>
                 <div style={{ height: "117px", width: "100%", display: "flex", marginTop: "20px", boxShadow: "0px 4px 20px 10px #0000001a", borderRadius: "5px", padding: "30px" }}>
                     <div className='options'>
@@ -232,12 +237,32 @@ const Buy = () => {
                 </div>
             </div>
             <div className='amenties-div' style={{
-                height: "473px", width: "15%", backgroundColor: "red", justifyContent: "center", marginTop: "20px", marginLeft: "5%", borderRadius: "5px", background: "rgba(255, 255, 255, 1)", boxShadow: "2px 4px 10px 4px rgba(0, 0, 0, 0.1)",
+                height: "473px", width: "15%", backgroundColor: "red", justifyContent: "center", marginTop: "20px", marginLeft: "5%", borderRadius: "5px", background: "rgba(255, 255, 255, 1)", boxShadow: "2px 4px 10px 4px rgba(0, 0, 0, 0.1)",flexDirection:"column"
 
             }}>
-                <p style={{ fontSize: "20px", fontWeight: 500 }}>
+                <p style={{ fontSize: "20px", fontWeight: 500,textAlign:"center" }}>
                     Amenties
                 </p>
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                    <LandscapeIcon />
+                    <p style={{ fontSize: "16px", fontWeight: 400, color: "rgba(26, 54, 62, 1)",textAlign:"center" }}>Landscaping & Tree Planting</p>
+                </div>
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                    <SolarPowerIcon />
+                    <p style={{ fontSize: "16px", fontWeight: 400, color: "rgba(26, 54, 62, 1)" }}>Power Backup</p>
+                </div>
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                    <FenceIcon />
+                    <p style={{ fontSize: "16px", fontWeight: 400, color: "rgba(26, 54, 62, 1)" }}>Gated Community</p>
+                </div>
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                    <NoEncryptionIcon />
+                    <p style={{ fontSize: "16px", fontWeight: 400, color: "rgba(26, 54, 62, 1)" }}>24x7 Security</p>
+                </div>
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                <TimeToLeaveOutlinedIcon />
+                    <p style={{ fontSize: "16px", fontWeight: 400, color: "rgba(26, 54, 62, 1)" }}>Car Parking</p>
+                </div>
             </div>
         </div>
     )

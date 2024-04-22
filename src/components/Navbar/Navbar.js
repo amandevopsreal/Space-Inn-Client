@@ -66,7 +66,7 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li class="nav-item">
-                                <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link active" aria-current="page" href="#">Sell</a>
+                                <Link style={{ textDecoration: "none", }} to="/sell"> <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link active" aria-current="page" href="#">Sell</a></Link>
                             </li>
                             <Link style={{ textDecoration: "none", }} to="/rent"><li class="nav-item">
                                 <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link" href="#">Rent</a>

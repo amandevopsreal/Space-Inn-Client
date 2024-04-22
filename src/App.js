@@ -15,6 +15,7 @@ import LocationState from './context/location/LocationState';
 import Property from './components/Property/Property';
 import Buy from './components/Buy/Buy';
 import Rent from './components/Rent/Rent';
+import Sell from './components/Sell/Sell';
 function App() {
   return (
     <LocationState>
@@ -28,6 +29,7 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/buy" element={<><Navbar /><Buy /><Footer /></>} />
             <Route exact path="/rent" element={<><Navbar /><Rent /><Footer /></>} />
+            <Route exact path="/sell" element={<><Navbar /><Sell /><Footer /></>} />
             <Route exact path="/property/:_id" element={<><Navbar /><Property /><Footer /></>} />
           </Routes>
         </div>

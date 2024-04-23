@@ -16,12 +16,11 @@ import Property from './components/Property/Property';
 import Buy from './components/Buy/Buy';
 import Rent from './components/Rent/Rent';
 import Sell from './components/Sell/Sell';
+
 function App() {
   return (
     <LocationState>
-
       <Router>
-
         <div className='container'>
           <Routes>
             <Route exact path="/" element={<><Navbar /><Hero /><Featured /><Trending /><Footer /></>} />

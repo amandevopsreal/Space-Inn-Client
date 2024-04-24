@@ -5,7 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { BrowserRouter } from 'react-router-dom';
+import firebase from "firebase/compat/app"
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCAkDXQR_HWwzMcwGmy5lEuSCV0K7UJjgQ",
+  authDomain: "space-inn.firebaseapp.com",
+  projectId: "space-inn",
+  storageBucket: "space-inn.appspot.com",
+  messagingSenderId: "929249206015",
+  appId: "1:929249206015:web:523a1fa507e1cb86db76ca"
+};
+
+firebase.initializeApp(firebaseConfig)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -4,19 +4,43 @@ import "./Sell.css";
 import { useNavigate } from "react-router-dom";
 import { useDropzone } from 'react-dropzone';
 import { isMuiElement } from "@mui/material";
+import firebase from "firebase/compat/app"
+import "firebase/compat/storage"
 
 const Sell = () => {
 
     const [images, setImages] = useState([]);
-    const onDrop = (acceptedFiles) => {
-        setImages(images.concat(acceptedFiles));
+    const handleFileUpload = (event) => {
+        const acceptedFiles = event.target.files[0]
+        if (acceptedFiles) {
+            const storageRef = firebase.storage().ref()
+            const fileRef = storageRef.child(acceptedFiles.name)
+
+            fileRef.put(acceptedFiles)
+                .then((snapshot) => {
+                    snapshot.ref.getDownloadURL()
+                        .then((downloadURL) => {
+                            setImages(images.concat(downloadURL));
+                        })
+                })
+        }
     };
-    const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
     const [pdfFile, setPdfFile] = useState(null)
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        setPdfFile(file);
+    const handleFileChange = (event) => {
+        const acceptedFiles = event.target.files[0]
+        if (acceptedFiles) {
+            const storageRef = firebase.storage().ref()
+            const fileRef = storageRef.child(acceptedFiles.name)
+
+            fileRef.put(acceptedFiles)
+                .then((snapshot) => {
+                    snapshot.ref.getDownloadURL()
+                        .then((downloadURL) => {
+                            setPdfFile(downloadURL);
+                        })
+                })
+        }
     };
 
     const [name, setName] = useState("");
@@ -39,6 +63,7 @@ const Sell = () => {
     const [state, setState] = useState("");
     const [city, setCity] = useState("");
     const [pin, setPin] = useState("");
+    const [amenties, setAmenties] = useState([])
     const States = [
         "Andhra Pradesh",
         "Arunachal Pradesh",
@@ -97,7 +122,7 @@ const Sell = () => {
             city: city,
             pin: pin,
             pdfFile: pdfFile,
-            images:images
+            images: images
         }
         console.log(obj)
     }
@@ -106,6 +131,12 @@ const Sell = () => {
     const onNameChange = (event) => {
         setName(event.target.value);
     };
+    const onAmentiesChange = (event) => {
+        if (!amenties.includes(event.target.value)) {
+            setAmenties(amenties.concat(event.target.value))
+            console.log(amenties)
+        }
+    }
     const onConfigChange = (event) => {
         setConfig(event.target.value);
     };
@@ -183,8 +214,8 @@ const Sell = () => {
     }
 
     return (
-        <div style={{ marginBottom: "20px" }}>
-            <h1 className="list_heading container">List A New Property</h1>
+        <div className="container" style={{ marginBottom: "20px" }}>
+            <h1 className="list_heading">List A New Property</h1>
             <div class="form-row list_main row">
                 <div class="col-sm-12 col-md-6 ">
                     <label for="validationServer01">Property name</label>
@@ -619,17 +650,59 @@ const Sell = () => {
                     />
                 </div>
                 <div>
-                    <div {...getRootProps()}>
+                    {/*<div {...getRootProps()}>
                         <input {...getInputProps()} />
                         <button class="btn btn-primary list_btn">
                             Upload Images
                         </button>
+                    </div>*/}
+                    <div class="col-sm-12 col-md-6 ">
+                        <label for="validationServer05">Property Images</label>
+                        <input
+                            type="file"
+                            className={
+                                validatePin()
+                                    ? "form-control is-valid"
+                                    : "form-control is-invalid"
+                            }
+                            id="validationServer05"
+                            placeholder="PDF only"
+                            required
+                            onChange={handleFileUpload}
+
+                        />
+                        <div style={{ marginTop: "10px", display: "flex", justifyContent: 'flex-start', alignItems: "center", gap: "5px" }} className="container">
+                            {images.map((file, index) => (
+                                <img style={{ width: "50px", height: "50px" }} key={index} src={file ? file : "default.png"} alt={`Uploaded ${index}`} />
+                            ))}
+                        </div>
                     </div>
-                    <div style={{marginTop:"10px",display:"flex",justifyContent:'flex-start',alignItems:"center",gap:"5px"}} className="container">
-                        {images.map((file, index) => (
-                            <img style={{width:"50px",height:"50px"}} key={index} src={file ? URL.createObjectURL(file) : "default.png"} alt={`Uploaded ${index}`} />
-                        ))}
+                    <div class="col-sm-12 col-md-6 list_option">
+                        <label for="validationServer01">Select Amenties</label>
+                        <select
+                            className="form-select is-valid"
+                            id="inputGroupSelect03"
+                            aria-label="Example select with button addon"
+                            onChange={onAmentiesChange}
+                            required
+                        >
+                            <option value="Rain Water Harvesting">Rain Water Harvesting</option>
+                            <option value="Fire Fighting System">Fire Fighting System</option>
+                            <option value="Sewage Treatment">Sewage Treatment</option>
+                            <option value="Play Area">Play Area</option>
+                            <option value="24X7 Water Supply">24X7 Water Supply</option>
+                            <option value="Landscaping & Tree Planting">Landscaping & Tree Planting</option>
+                            <option value="Power Backup">Power Backup</option>
+                            <option value="Gated Community">Gated Community</option>
+                            <option value="24x7 Security">24x7 Security</option>
+                            <option value="Car Parking">Car Parking</option>
+                        </select>
                     </div>
+                    <div style={{ marginTop: "10px", display: "flex", justifyContent: 'flex-start', alignItems: "center", gap: "5px",flexWrap:"wrap",width:"100%" }} className="container">
+                            {amenties.map(ind=>{
+                                return(<p style={{textAlign:"center",border:"2px solid black",padding:"5px",borderRadius:"5px"}}>{ind}</p>)
+                            })}
+                        </div>
                 </div>
             </div>
             <div class="form-group">

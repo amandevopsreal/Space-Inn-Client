@@ -97,7 +97,7 @@ const Buy = () => {
     }, [location, minBudget, maxBudget, rooms, rmove, progress]);
 
     return (
-        <div className='container' style={{ display: "flex",marginBottom:"20px" }}>
+        <div className='container' style={{ display: "flex", marginBottom: "20px" }}>
             <div className='view-sec'>
                 <div style={{ height: "117px", width: "100%", display: "flex", marginTop: "20px", boxShadow: "0px 4px 20px 10px #0000001a", borderRadius: "5px", padding: "30px" }}>
                     <div className='options'>
@@ -122,11 +122,11 @@ const Buy = () => {
                             <div style={{ textAlign: "left" }}>
                                 <div style={{ display: "flex", gap: "5px" }}>
                                     <input onChange={e => readyToMoveValue(e.currentTarget.checked)} style={{ border: "1px solid #939393", cursor: "pointer" }} type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                    <label style={{ fontSize: "20px", color: "#939393" }} for="vehicle1"> Ready to move</label>
+                                    <label style={{ fontSize: "20px", color: "#939393", margin: 0 }} for="vehicle1"> Ready to move</label>
                                 </div>
                                 <div style={{ display: "flex", gap: "5px" }}>
                                     <input onChange={e => progressValue(e.currentTarget.checked)} style={{ border: "1px solid #939393", cursor: "pointer" }} type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-                                    <label style={{ fontSize: "20px", color: "#939393" }} for="vehicle2"> In progress</label>
+                                    <label style={{ fontSize: "20px", color: "#939393", margin: 0 }} for="vehicle2"> In progress</label>
                                 </div>
                             </div>
                         </div>
@@ -237,15 +237,15 @@ const Buy = () => {
                 </div>
             </div>
             <div className='amenties-div' style={{
-                height: "473px", width: "15%", backgroundColor: "red", justifyContent: "center", marginTop: "20px", marginLeft: "5%", borderRadius: "5px", background: "rgba(255, 255, 255, 1)", boxShadow: "2px 4px 10px 4px rgba(0, 0, 0, 0.1)",flexDirection:"column"
+                height: "473px", width: "15%", backgroundColor: "red", justifyContent: "center", marginTop: "20px", marginLeft: "5%", borderRadius: "5px", background: "rgba(255, 255, 255, 1)", boxShadow: "2px 4px 10px 4px rgba(0, 0, 0, 0.1)", flexDirection: "column"
 
             }}>
-                <p style={{ fontSize: "20px", fontWeight: 500,textAlign:"center" }}>
+                <p style={{ fontSize: "20px", fontWeight: 500, textAlign: "center" }}>
                     Amenties
                 </p>
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
                     <LandscapeIcon />
-                    <p style={{ fontSize: "16px", fontWeight: 400, color: "rgba(26, 54, 62, 1)",textAlign:"center" }}>Landscaping & Tree Planting</p>
+                    <p style={{ fontSize: "16px", fontWeight: 400, color: "rgba(26, 54, 62, 1)", textAlign: "center" }}>Landscaping & Tree Planting</p>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
                     <SolarPowerIcon />
@@ -260,7 +260,7 @@ const Buy = () => {
                     <p style={{ fontSize: "16px", fontWeight: 400, color: "rgba(26, 54, 62, 1)" }}>24x7 Security</p>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-                <TimeToLeaveOutlinedIcon />
+                    <TimeToLeaveOutlinedIcon />
                     <p style={{ fontSize: "16px", fontWeight: 400, color: "rgba(26, 54, 62, 1)" }}>Car Parking</p>
                 </div>
             </div>

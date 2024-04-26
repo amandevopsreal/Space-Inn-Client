@@ -84,6 +84,9 @@ const Navbar = () => {
                             <li style={{ cursor: "pointer" }} onClick={() => { getLocation() }} class="nav-item">
                                 <a class="nav-link"><LocationOnIcon /></a>
                             </li>
+                            {localStorage.getItem("token") && <Link style={{ textDecoration: "none", }} to="/dashboard"><li style={{ cursor: "pointer" }} class="nav-item">
+                                <a class="nav-link"><PersonOutlineOutlinedIcon /></a>
+                            </li></Link>}
                             <li class="nav-item">
                                 {localStorage.getItem("token") ? <Button variant="outlined" onClick={() => { handleLogOut() }} sx={{
                                     background: "#ffffff", borderRadius: "10px",

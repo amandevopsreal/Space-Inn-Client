@@ -122,11 +122,11 @@ const Rent = () => {
                             <div style={{ textAlign: "left" }}>
                                 <div style={{ display: "flex", gap: "5px" }}>
                                     <input onChange={e => readyToMoveValue(e.currentTarget.checked)} style={{ border: "1px solid #939393", cursor: "pointer" }} type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-                                    <label style={{ fontSize: "20px", color: "#939393" }} for="vehicle1"> Ready to move</label>
+                                    <label style={{ fontSize: "20px", color: "#939393",margin:0 }} for="vehicle1"> Ready to move</label>
                                 </div>
                                 <div style={{ display: "flex", gap: "5px" }}>
                                     <input onChange={e => progressValue(e.currentTarget.checked)} style={{ border: "1px solid #939393", cursor: "pointer" }} type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-                                    <label style={{ fontSize: "20px", color: "#939393" }} for="vehicle2"> In progress</label>
+                                    <label style={{ fontSize: "20px", color: "#939393",margin:0 }} for="vehicle2"> In progress</label>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +163,7 @@ const Rent = () => {
                                         </div>
                                         <div style={{ display: "flex", gap: "5px" }}>
                                             <input onChange={e => progressValue(e.currentTarget.checked)} style={{ border: "1px solid #939393" }} type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-                                            <label style={{ fontSize: "20px", color: "#939393" }} for="vehicle2"> In progress</label>
+                                            <label style={{ fontSize: "20px", color: "#939393"}} for="vehicle2"> In progress</label>
                                         </div>
                                     </div>
                                 </div>

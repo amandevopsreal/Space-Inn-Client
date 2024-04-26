@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Signup from './components/Signup/Signup';
 import Login from './components/Login/Login';
@@ -7,6 +8,7 @@ import Footer from './components/Footer/Footer';
 import {
   BrowserRouter as Router,
   Routes,
+  Navigate,
   Route,
 } from "react-router-dom";
 import Featured from './components/Featured/Featured';
@@ -16,6 +18,7 @@ import Property from './components/Property/Property';
 import Buy from './components/Buy/Buy';
 import Rent from './components/Rent/Rent';
 import Sell from './components/Sell/Sell';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -28,8 +31,13 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/buy" element={<><Navbar /><Buy /><Footer /></>} />
             <Route exact path="/rent" element={<><Navbar /><Rent /><Footer /></>} />
-            <Route exact path="/sell" element={<><Navbar /><Sell /><Footer /></>} />
+            <Route exact path="/sell"
+              element={localStorage.getItem("token")
+                ? <><Navbar /><Sell /><Footer /></>
+                : <Navigate to="/login" replace />
+              } />
             <Route exact path="/property/:_id" element={<><Navbar /><Property /><Footer /></>} />
+            <Route exact path="/dashboard" element={<><Navbar /><Dashboard /><Footer /></>} />
           </Routes>
         </div>
       </Router>

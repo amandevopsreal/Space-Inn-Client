@@ -6,6 +6,7 @@ import { useDropzone } from 'react-dropzone';
 import { isMuiElement } from "@mui/material";
 import firebase from "firebase/compat/app"
 import "firebase/compat/storage"
+import CloseIcon from '@mui/icons-material/Close';
 
 const Sell = () => {
 
@@ -100,31 +101,42 @@ const Sell = () => {
         "Lakshadweep",
         "Puducherry",
     ];
-    const onSubmit = () => {
-        const obj = {
-            name: name,
-            cat: cat,
-            possesionDate: possesionDate,
-            estdDate: estdDate,
-            projects: projects,
+    const onSubmit = async() => {
+        const payload = {
+            title: name,
             description: description,
-            minArea: minArea,
-            maxArea: maxArea,
-            constName: constName,
+            configuration:config,
             minPrice: minPrice,
             maxPrice: maxPrice,
-            avgPrice: avgPrice,
-            emiPrice: emiPrice,
-            phone: phone,
-            email: email,
-            address: address,
-            state: state,
+            average_price: avgPrice,
+            emi: emiPrice,
+            contact_number: phone,
+            contact_email: email,
+            minArea: minArea,
+            maxArea: maxArea,
             city: city,
+            address: address,
+            amenties:amenties,
+            images: images,
+            owner: constName,
+            possesion_date: possesionDate,
+            cat: cat,
+            estdDate: estdDate,
+            projects: projects,
+            state: state,
             pin: pin,
-            pdfFile: pdfFile,
-            images: images
+            broucher: pdfFile,
         }
-        console.log(obj)
+        const response = await fetch(`http://localhost:5000/api/properties/create`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": localStorage.getItem("token")
+            },
+            body: JSON.stringify(payload),
+        });
+        console.log("Adding a new property")
+        console.log(response.json())
     }
     const navigate = useNavigate();
 
@@ -136,6 +148,11 @@ const Sell = () => {
             setAmenties(amenties.concat(event.target.value))
             console.log(amenties)
         }
+    }
+    const onRemoveAmenties = (event) => {
+        setAmenties(amenties.filter(function (amentie) {
+            return amentie!== event;
+        }))
     }
     const onConfigChange = (event) => {
         setConfig(event.target.value);
@@ -406,8 +423,8 @@ const Sell = () => {
                         onChange={onCatChange}
                         required
                     >
-                        <option value="vegetable">Sale</option>
-                        <option value="fruit">Rent</option>
+                        <option value="sale">Sale</option>
+                        <option value="rent">Rent</option>
                     </select>
                     <div class="valid-feedback">Looks good!</div>
                 </div>
@@ -421,7 +438,7 @@ const Sell = () => {
                                 : "form-control is-invalid"
                         }
                         id="validationServer02"
-                        placeholder="L/Cr"
+                        placeholder="K/ L/ Cr"
                         onChange={(e) => setMinPrice(e.target.value)}
                         required
                     />
@@ -443,7 +460,7 @@ const Sell = () => {
                                 : "form-control is-invalid"
                         }
                         id="validationServer02"
-                        placeholder="L/Cr"
+                        placeholder="K/ L/ Cr"
                         onChange={(e) => setMaxPrice(e.target.value)}
                         required
                     />
@@ -487,7 +504,7 @@ const Sell = () => {
                                 : "form-control is-invalid"
                         }
                         id="validationServer02"
-                        placeholder="K/L/Cr"
+                        placeholder="K/ L/ Cr"
                         onChange={(e) => setEmiPrice(e.target.value)}
                         required
                     />
@@ -698,11 +715,11 @@ const Sell = () => {
                             <option value="Car Parking">Car Parking</option>
                         </select>
                     </div>
-                    <div style={{ marginTop: "10px", display: "flex", justifyContent: 'flex-start', alignItems: "center", gap: "5px",flexWrap:"wrap",width:"100%" }} className="container">
-                            {amenties.map(ind=>{
-                                return(<p style={{textAlign:"center",border:"2px solid black",padding:"5px",borderRadius:"5px"}}>{ind}</p>)
-                            })}
-                        </div>
+                    <div style={{ marginTop: "10px", display: "flex", justifyContent: 'flex-start', alignItems: "center", gap: "5px", flexWrap: "wrap", width: "100%" }} className="container">
+                        {amenties.map(ind => {
+                            return (<div style={{ border: "2px solid black", padding: "5px", borderRadius: "5px", display: "flex", justifyContent: "center", alignItems: "center" }}><p style={{ margin: 0 }}>{ind}</p><CloseIcon onClick={()=>onRemoveAmenties(ind)} style={{ cursor: "pointer" }}></CloseIcon></div>)
+                        })}
+                    </div>
                 </div>
             </div>
             <div class="form-group">

@@ -19,6 +19,7 @@ import Buy from './components/Buy/Buy';
 import Rent from './components/Rent/Rent';
 import Sell from './components/Sell/Sell';
 import Dashboard from './components/Dashboard/Dashboard';
+import Articles from './components/Articles/Articles';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
       <Router>
         <div className='container'>
           <Routes>
-            <Route exact path="/" element={<><Navbar /><Hero /><Featured /><Trending /><Footer /></>} />
+            <Route exact path="/" element={<><Navbar /><Hero /><Featured /><Trending /><Articles/><Footer /></>} />
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/buy" element={<><Navbar /><Buy /><Footer /></>} />

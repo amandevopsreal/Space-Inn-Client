@@ -16,7 +16,7 @@ const style = {
     p: 4,
 };
 
-const Posted = () => {
+const Saved = ({ tags }) => {
     const [delId, setDelId] = useState("")
     const [property, setProperty] = useState([])
     const [open, setOpen] = React.useState(false);
@@ -45,19 +45,20 @@ const Posted = () => {
         console.log(response.json())
     }
 
-    const onClickEdit=(id)=>{
-        localStorage.setItem("editId",id)
+    const onClickEdit = (id) => {
+        localStorage.setItem("editId", id)
         navigate("/update")
     }
-
+    
     useEffect(() => {
-        let url = 'http://localhost:5000/api/properties/posted';
+        let url = 'http://localhost:5000/api/properties/getsaved';
         fetch(url, {
-            method: "GET",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": localStorage.getItem("token")
             },
+            body: JSON.stringify({ tags: tags }),
         })
             .then(response => response.json())
             .then(data => {
@@ -66,7 +67,6 @@ const Posted = () => {
             })
             .catch(error => console.error('Error fetching properties:', error));
     }, []);
-
     return (
         <div style={{ marginTop: "30px" }} className='row'>
             <Modal
@@ -88,7 +88,7 @@ const Posted = () => {
                     </div>
                 </Box>
             </Modal>
-            {property.map(itm => {
+            {property&&property.map(itm => {
                 return (
                     <div className='col-sm-4 col-md-4 col-lg-4'>
                         <div class="card mb-3" style={{
@@ -103,7 +103,7 @@ const Posted = () => {
                                         <h5 class="card-title">{itm.title}</h5>
                                         <p class="card-text">{itm.configuration} BHK in {itm.address}</p>
                                         <p class="card-text"><small class="text-body-secondary">{itm.minPrice} - {itm.maxPrice}</small></p>
-                                        <div style={{ display: 'flex', gap: "5px",flexWrap:"wrap"}}>
+                                        <div style={{ display: 'flex', gap: "5px", flexWrap: "wrap" }}>
                                             <Button
                                                 onClick={() => onView(itm._id)}
                                                 sx={{
@@ -115,16 +115,6 @@ const Posted = () => {
                                                         backgroundColor: "#FFFF !important",
                                                     }, border: "1px solid #22B362", background: "#FFFF"
                                                 }} variant="outlined">View</Button>
-                                            <Button
-                                                onClick={() => handleOpen(itm._id)}
-                                                sx={{
-                                                    background: "red", "&:hover": {
-                                                        backgroundColor: "red !important",
-                                                    },
-                                                    "&:active": {
-                                                        backgroundColor: "red !important",
-                                                    }
-                                                }} variant="contained">Delete</Button>
                                         </div>
                                     </div>
                                 </div>
@@ -137,4 +127,4 @@ const Posted = () => {
     )
 }
 
-export default Posted
+export default Saved

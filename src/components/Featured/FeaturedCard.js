@@ -26,7 +26,7 @@ const FeaturedCard = ({ featured }) => {
                     fontWeight: 400,
                     letterSpacing: 0,
                     lineHeight: "normal"
-                }} class="card-text">{featured.address}</p>
+                }} class="card-text">{featured.configuration}BHK in {featured.address}</p>
                 <p style={{
                     color: "#1A363E",
                     fontFamily: "'Fira Sans-Regular', Helvetica",
@@ -34,7 +34,7 @@ const FeaturedCard = ({ featured }) => {
                     fontWeight: 400,
                     letterSpacing: 0,
                     lineHeight: "normal"
-                }} class="card-text"><small class="text-body-secondary">{featured.price} Lacs.</small></p>
+                }} class="card-text"><small class="text-body-secondary">{featured.minPrice}-{featured.maxPrice}.</small></p>
             </div>
         </div >
     )

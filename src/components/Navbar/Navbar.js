@@ -71,16 +71,16 @@ const Navbar = () => {
                             <Link style={{ textDecoration: "none", }} to="/rent"><li class="nav-item">
                                 <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link" href="#">Rent</a>
                             </li></Link>
-                            <li class="nav-item">
+                            <Link style={{ textDecoration: "none", }} to="/agents"><li class="nav-item">
                                 <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link" href="#">Agent Finder</a>
-                            </li>
+                            </li></Link>
 
-                            <li class="nav-item">
+                            {/*<li class="nav-item">
                                 <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px", cursor: "pointer" }} class="nav-link">Manage Rental</a>
-                            </li>
-                            <li class="nav-item">
-                                <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px", cursor: "pointer" }} class="nav-link">Help</a>
-                            </li>
+    </li>*/}
+                            <Link style={{ textDecoration: "none", }} to="/help"><li class="nav-item">
+                                <a style={{ color: "rgba(26, 54, 62, 1)", fontSize: "24px", fontWeight: 400, lineHeight: "28.8px" }} class="nav-link" href="#">Help</a>
+                            </li></Link>
                             <li style={{ cursor: "pointer" }} onClick={() => { getLocation() }} class="nav-item">
                                 <a class="nav-link"><LocationOnIcon /></a>
                             </li>

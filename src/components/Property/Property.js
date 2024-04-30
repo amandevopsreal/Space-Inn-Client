@@ -51,6 +51,18 @@ const Property = () => {
         const json = await response.json()
         setPropertyItem(json)
     }
+    const onSave = async () => {
+        const response = await fetch(`http://localhost:5000/api/properties/save`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": localStorage.getItem("token")
+            },
+            body: JSON.stringify({listing_id:_id}),
+        });
+        console.log("Adding a new property")
+        console.log(response.json())
+    }
     useEffect(() => {
         getProperty()
     }, [_id])
@@ -126,7 +138,7 @@ const Property = () => {
                         <p style={{ fontWeight: 400, fontSize: "16px", color: "rgba(147, 147, 147, 1)" }}>{propertyItem.address}</p>
                     </div>
                     <div className='prop-sub-sec-2'>
-                        <p style={{ fontWeight: 500, fontSize: "20px" }}>₹{propertyItem.price} L</p>
+                        <p style={{ fontWeight: 500, fontSize: "20px" }}>₹{propertyItem.minPrice} - {propertyItem.maxPrice}</p>
                         <p style={{ fontWeight: 400, fontSize: "20px" }}>₹{propertyItem.average_price} K/sq. ft</p>
                         <p style={{ fontWeight: 400, fontSize: "15px" }}><span style={{ color: "rgba(34, 179, 98, 1)" }}>EMI</span> starts at ₹{propertyItem.emi} K</p>
                         <Button sx={{
@@ -145,7 +157,7 @@ const Property = () => {
                         <span style={{ fontWeight: 400, fontSize: "16px", color: "rgba(0, 0, 0, 1)" }}>Gallery</span>
                         <div style={{ display: "flex", gap: "20px" }}>
                             <ShareOutlinedIcon onClick={() => setIsOpen(true)} style={{ cursor: "pointer" }} />
-                            <TurnedInNotOutlinedIcon style={{ cursor: "pointer" }} />
+                            <TurnedInNotOutlinedIcon onClick={onSave} style={{ cursor: "pointer" }} />
                         </div>
                     </div>
                     <div style={{ width: "100%", marginTop: "15px" }}>
@@ -164,7 +176,7 @@ const Property = () => {
                     <div className='prop-sec-3-cont' style={{ width: "95%", display: "flex" }}>
                         <div className='sec-3-sub' id='sec-3-sub-1' style={{ borderRight: '1px solid rgba(0, 0, 0, 1)', justifyContent: "center", alignItems: "flex-start", flexDirection: "column" }}>
                             <div>
-                                <p style={{ textAlign: "center" }} className='sec-3-head'>{propertyItem.listing_type}</p>
+                                <p style={{ textAlign: "center" }} className='sec-3-head'>{propertyItem.configuration} BHK</p>
                                 <p style={{ width: "100%", textAlign: "center" }} className='sec-3-sub-head'>Configurations</p>
                             </div>
                         </div>
@@ -177,11 +189,7 @@ const Property = () => {
                             <p className='sec-3-sub-head'>Avg. Price</p>
                         </div>
                         <div className='sec-3-sub' id='sec-3-sub-4' style={{ justifyContent: "flex-end", alignItems: "center", paddingLeft: "10px" }}>
-                            <p className='sec-3-head'>{propertyItem.area && propertyItem.area.map((ar, index) => (
-                                <React.Fragment key={index}>
-                                    {ar} sq.ft{index !== propertyItem.area.length - 1 && ', '}
-                                </React.Fragment>
-                            ))}</p>
+                            <p className='sec-3-head'>{propertyItem.minArea} sq.ft. - {propertyItem.maxArea} sq.ft.</p>
                         </div>
                     </div>
                 </div>
@@ -195,7 +203,7 @@ const Property = () => {
                         <div className='container' /*style={{ display: "flex", flexWrap: 'wrap',width:"80%" }}*/>
                             <div className='row'>
                                 {
-                                    propertyItem.features && propertyItem.features.map(itm => {
+                                    propertyItem.amenties && propertyItem.amenties.map(itm => {
                                         return (
                                             <div className='col-sm-6 col-md-4 col-lg-3' style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
                                                 {featureIcon(itm)}
@@ -213,10 +221,10 @@ const Property = () => {
                     <div className='prop-sub-sec-1' style={{ textAlign: "center" }}>
                         <h1>{propertyItem.title} - Brochure</h1>
                         <div style={{ display: "flex", gap: "10px", justifyContent: "center", alignItems: "center" }}>
-                            {propertyItem.images && propertyItem.images.slice(0,3).map(img => {
+                            {propertyItem.images && propertyItem.images.slice(0, 3).map(img => {
                                 return (
 
-                                    <img style={{ width: "80px", height: "76px",borderRadius:"10px"}} src={img} />
+                                    <img style={{ width: "80px", height: "76px", borderRadius: "10px" }} src={img} />
                                 )
                             })}
                         </div>

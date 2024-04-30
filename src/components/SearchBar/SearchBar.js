@@ -23,6 +23,7 @@ const SearchBar = () => {
         'Bangalore',
         'Hyderabad',
         'Chennai',
+        'Lucknow'
         // Add more cities as needed
     ];
     return (

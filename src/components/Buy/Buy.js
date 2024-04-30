@@ -10,7 +10,8 @@ import SolarPowerIcon from '@mui/icons-material/SolarPower';
 import FenceIcon from '@mui/icons-material/Fence';
 import NoEncryptionIcon from '@mui/icons-material/NoEncryption';
 import TimeToLeaveOutlinedIcon from '@mui/icons-material/TimeToLeaveOutlined';
-
+import { useContext } from 'react'
+import locationContext from '../../context/location/locationContext';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -27,6 +28,8 @@ const style = {
 };
 
 const Buy = () => {
+    const context = useContext(locationContext)
+    const { location } = context
     const navigate = useNavigate()
 
     const handleView = (_id) => {
@@ -40,6 +43,7 @@ const Buy = () => {
     const handleClose = () => setOpen(false);
 
     const [contactEmail, setContactEmail] = useState("")
+    const[slocation,setSlocation]=useState(location)
     const [contactNumber, setContactNumber] = useState("")
     const [contactOpen, setContactOpen] = React.useState(false);
     const handleContactOpen = (itm) => {
@@ -58,7 +62,6 @@ const Buy = () => {
     const [minBudget, setMinBudget] = useState(0)
     const [maxBudget, setMaxBudget] = useState(0)
     const [rooms, setRooms] = useState(0)
-    const [location, setLocation] = useState("Lucknow")
     const [rmove, setRmove] = useState("")
     const [progress, setProgress] = useState("")
     const [property, setProperty] = useState([])
@@ -72,7 +75,7 @@ const Buy = () => {
 
     useEffect(() => {
         let url = 'http://localhost:5000/api/properties/search';
-        url += `?location=${encodeURIComponent("Lucknow")}`;
+        url += `?location=${encodeURIComponent(`${location}`)}`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -115,7 +118,7 @@ const Buy = () => {
                             </div>
                         </div>
                         <div style={{ display: "flex", flexDirection: "column", width: "25%", justifyContent: "center", alignItems: "center" }}>
-                            <input onChange={(e) => setLocation(e.target.value)} placeholder='Enter Location' style={{ padding: "10px", borderRadius: "5px", border: "1px solid #22B362", boxShadow: "2px 4px 10px 4px rgba(34, 179, 98, 0.1) inset", width: "100%" }}></input>
+                            <input onChange={(e) => setSlocation(e.target.value)} placeholder='Enter Location' style={{ padding: "10px", borderRadius: "5px", border: "1px solid #22B362", boxShadow: "2px 4px 10px 4px rgba(34, 179, 98, 0.1) inset", width: "100%" }}></input>
                         </div>
                         <div style={{ display: "flex", flexDirection: "column", width: "25%", justifyContent: "center", alignItems: "center" }}>
                             <p className='filter-heading'>Construction Status</p>
@@ -132,7 +135,7 @@ const Buy = () => {
                         </div>
                     </div>
                     <div className='mobile-options'>
-                        <input onChange={(e) => setLocation(e.target.value)} placeholder='Enter Location' style={{ padding: "10px", borderRadius: "5px", border: "1px solid #22B362", boxShadow: "2px 4px 10px 4px rgba(34, 179, 98, 0.1) inset" }}></input>
+                        <input onChange={(e) => setSlocation(e.target.value)} placeholder='Enter Location' style={{ padding: "10px", borderRadius: "5px", border: "1px solid #22B362", boxShadow: "2px 4px 10px 4px rgba(34, 179, 98, 0.1) inset" }}></input>
                         <FilterAltIcon onClick={handleOpen} />
                         <Modal
                             open={open}
@@ -185,8 +188,8 @@ const Buy = () => {
                                         <div class="col-md-8">
                                             <div class="card-body">
                                                 <h5 class="card-title">{itm.title}</h5>
-                                                <p class="card-text">{itm.listing_type} in {itm.address}</p>
-                                                <p class="card-text"><small class="text-body-secondary">{itm.price} L</small></p>
+                                                <p class="card-text">{itm.configuration}BHK in {itm.address}</p>
+                                                <p class="card-text"><small class="text-body-secondary">{itm.minPrice} - {itm.maxPrice}</small></p>
                                                 <div style={{ display: 'flex', gap: "5px" }}>
                                                     <Button
                                                         onClick={() => { onView(itm._id) }}

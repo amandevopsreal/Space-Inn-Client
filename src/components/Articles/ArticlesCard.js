@@ -35,7 +35,7 @@ const ArticlesCard = ({ news }) => {
                     letterSpacing: 0,
                     lineHeight: "normal"
                 }} class="card-text"><small class="text-body-secondary">{new Date(news.publishedAt).toGMTString()}</small></p>
-                <a href={news.url} rel="noreferrer" target='_blank' className="btn btn-sm btn-primary">Read More</a>
+                <a href={news.url} rel="noreferrer" target='_blank' className="btn btn-sm" style={{background:"#22B362",color:'white'}}>Read More</a>
             </div>
         </div >
     )

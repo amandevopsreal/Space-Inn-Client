@@ -8,7 +8,7 @@ const Trending = () => {
     const context = useContext(locationContext)
     const { location } = context
     const getUpcoming = async () => {
-        const response = await fetch(`http://localhost:5000/api/properties/upcoming/Lucknow`, {
+        const response = await fetch(`http://localhost:5000/api/properties/upcoming/${location}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

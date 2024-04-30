@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Sell.css";
 import { useNavigate } from "react-router-dom";
 import { useDropzone } from 'react-dropzone';
@@ -11,6 +11,21 @@ import CloseIcon from '@mui/icons-material/Close';
 const Sell = () => {
 
     const [images, setImages] = useState([]);
+    const [agents, setAgents] = useState([])
+    const[selectedAgent,setSelectedAgent]=useState("")
+    const getAgent = async () => {
+        const response = await fetch(`http://localhost:5000/api/agents`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const json = await response.json()
+        setAgents(json)
+    }
+    useEffect(()=>{
+        getAgent()
+    },[])
     const handleFileUpload = (event) => {
         const acceptedFiles = event.target.files[0]
         if (acceptedFiles) {
@@ -101,11 +116,11 @@ const Sell = () => {
         "Lakshadweep",
         "Puducherry",
     ];
-    const onSubmit = async() => {
+    const onSubmit = async () => {
         const payload = {
             title: name,
             description: description,
-            configuration:config,
+            configuration: config,
             minPrice: minPrice,
             maxPrice: maxPrice,
             average_price: avgPrice,
@@ -116,7 +131,7 @@ const Sell = () => {
             maxArea: maxArea,
             city: city,
             address: address,
-            amenties:amenties,
+            amenties: amenties,
             images: images,
             owner: constName,
             possesion_date: possesionDate,
@@ -126,6 +141,7 @@ const Sell = () => {
             state: state,
             pin: pin,
             broucher: pdfFile,
+            agent:selectedAgent
         }
         const response = await fetch(`http://localhost:5000/api/properties/create`, {
             method: "POST",
@@ -151,7 +167,7 @@ const Sell = () => {
     }
     const onRemoveAmenties = (event) => {
         setAmenties(amenties.filter(function (amentie) {
-            return amentie!== event;
+            return amentie !== event;
         }))
     }
     const onConfigChange = (event) => {
@@ -425,6 +441,24 @@ const Sell = () => {
                     >
                         <option value="sale">Sale</option>
                         <option value="rent">Rent</option>
+                    </select>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="col-sm-12 col-md-6 list_option">
+                    <label for="validationServer01">Add Agent</label>
+                    <select
+                        className="form-select is-valid"
+                        id="inputGroupSelect03"
+                        aria-label="Example select with button addon"
+                        onChange={(e)=>{setSelectedAgent(e.target.value)
+                        console.log(e.target.value)}}
+                        required
+                    >
+                        {agents.map(itm=>{
+                            return(
+                                <option value={itm._id}>{itm.name}</option>
+                            )
+                        })}
                     </select>
                     <div class="valid-feedback">Looks good!</div>
                 </div>
@@ -717,7 +751,7 @@ const Sell = () => {
                     </div>
                     <div style={{ marginTop: "10px", display: "flex", justifyContent: 'flex-start', alignItems: "center", gap: "5px", flexWrap: "wrap", width: "100%" }} className="container">
                         {amenties.map(ind => {
-                            return (<div style={{ border: "2px solid black", padding: "5px", borderRadius: "5px", display: "flex", justifyContent: "center", alignItems: "center" }}><p style={{ margin: 0 }}>{ind}</p><CloseIcon onClick={()=>onRemoveAmenties(ind)} style={{ cursor: "pointer" }}></CloseIcon></div>)
+                            return (<div style={{ border: "2px solid black", padding: "5px", borderRadius: "5px", display: "flex", justifyContent: "center", alignItems: "center" }}><p style={{ margin: 0 }}>{ind}</p><CloseIcon onClick={() => onRemoveAmenties(ind)} style={{ cursor: "pointer" }}></CloseIcon></div>)
                         })}
                     </div>
                 </div>
@@ -739,7 +773,7 @@ const Sell = () => {
             </div>
           </div> */}
             </div>
-            <button class="btn btn-primary list_btn" onClick={() => { onSubmit() }}>
+            <button style={{background:"#22B362",color:'white'}} class="btn list_btn" onClick={() => { onSubmit() }}>
                 List Product
             </button>
         </div>

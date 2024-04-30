@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Posted from '../Posted/Posted';
+import Saved from '../Saved/Saved';
 const Dashboard = () => {
+
     const [alignment, setAlignment] = React.useState('posted');
 
     const handleChange = (event, newAlignment) => {
@@ -11,7 +13,8 @@ const Dashboard = () => {
     const [user, setUser] = useState({
         name: "",
         email: "",
-        phone:""
+        phone: "",
+        saved_properties: []
     })
     const onChange = (e) => {
         setUser({
@@ -19,6 +22,7 @@ const Dashboard = () => {
             [e.target.name]: e.target.value
         })
     }
+
     const onEdit = async () => {
         const response = await fetch(`http://localhost:5000/api/auth/updateuser`, {
             method: "PUT",
@@ -26,7 +30,7 @@ const Dashboard = () => {
                 "Content-Type": "application/json",
                 "auth-token": localStorage.getItem("token")
             },
-            body: JSON.stringify({ name: user.name, email: user.email,phone:user.phone }),
+            body: JSON.stringify({ name: user.name, email: user.email, phone: user.phone }),
         });
         const json = await response.json()
         console.log(json)
@@ -39,7 +43,7 @@ const Dashboard = () => {
 
             })
             const json = await response.json()
-            setUser({ name: json.name, email: json.email, phone: json.phone })
+            setUser({ name: json.name, email: json.email, phone: json.phone, saved_properties: json.saved_properties })
             console.log(json)
         }
         getUser()
@@ -61,7 +65,7 @@ const Dashboard = () => {
                     <label for="exampleInputPhone1" class="form-label">Phone</label>
                     <input value={user.phone} id="phone" name='phone' onChange={onChange} type="text" class="form-control" aria-describedby="nameHelp" />
                 </div>
-                <button onClick={onEdit} type="submit" class="btn btn-primary">Save</button>
+                <button onClick={onEdit} type="submit" class="btn " style={{ background: "#22B362", color: 'white' }}>Save</button>
             </div>
             <div style={{ marginTop: "20px", width: '100%', justifyContent: "center !important", alignItems: "center !important" }}>
                 <ToggleButtonGroup
@@ -75,7 +79,7 @@ const Dashboard = () => {
                     <ToggleButton value="saved">Saved</ToggleButton>
                 </ToggleButtonGroup>
             </div>
-            {alignment === "posted" ? <Posted /> : <></>}
+            {alignment === "posted" ? <Posted /> : <Saved tags={user.saved_properties} />}
         </div>
     )
 }

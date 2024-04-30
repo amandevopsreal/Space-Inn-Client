@@ -1,0 +1,25 @@
+@media screen and (max-width: 991px) {
+    .threediv {
+        flex-direction: column;
+    }
+
+    .form-div {
+        width: 100% !important;
+    }
+
+    .img-details {
+        width: 100% !important;
+        flex-direction: column !important;
+    }
+
+    .contact {
+        width: 100% !important;
+    }
+
+    .photo {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
